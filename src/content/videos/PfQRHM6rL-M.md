@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Marketing is the weather, not the spreadsheet — it is the context in which the entire business operates, not a department that can be optimised in isolation from finance and operations.
+- If something cannot be quantified it is treated as zero by finance departments, yet the most valuable things in business — brand, trust, relationships — are often precisely those things that resist numerical measurement.
+- Adding "Member Since" to an American Express card cost almost nothing but has been worth billions by transforming a transactional relationship into a relational one and making cancellation feel like self-betrayal.
+- Marketing's value is fat-tailed: a tiny fraction of ideas generate disproportionate returns, meaning the discipline should be judged on its outlier successes rather than its average quarterly output.
+- Founder-led and family businesses consistently outperform at marketing effectiveness because they think holistically rather than siloing marketing from strategy, finance, and operations.
+- The business world is closer to biology than mechanics — small events can have monumental consequences, single things serve multiple purposes, and the right lens is Darwinian observation, not Newtonian calculation.
 
 ## Stories & Examples
 

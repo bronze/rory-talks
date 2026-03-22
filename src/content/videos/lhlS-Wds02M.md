@@ -19,7 +19,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- The gold standard in hospitality — and in business generally — is not rationality but magic: rationality is merely the bronze standard, ingenuity the silver, and magic the gold, because only magic produces truly memorable emotional experiences.
+- Churchill's solution to the Buckingham Palace salt shaker theft (pocketing the pepper pot himself and approaching the thief as a fellow miscreant) shows that the emotional frame of an interaction matters more than its factual content.
+- In hospitality, your only real product is an emotional response; all the engineering, logistics, and physical assets are in service of producing a feeling in another person.
+- Spending £6 billion to reduce the Eurostar journey time by 40 minutes misses the point: the real question is not "how do we make it faster?" but "how do we make the journey so enjoyable that people feel stupid going by plane?"
+- Range anxiety in electric cars is as much a psychological problem as an engineering one: displaying exact battery percentages increases anxiety, while the simple fix of showing "80% plus" until a low threshold would reduce it at negligible cost.
+- Problems that persist despite rational solutions are likely logic-proof; they need creative, often counterintuitive interventions rather than more of the same analytical thinking.
 
 ## Stories & Examples
 

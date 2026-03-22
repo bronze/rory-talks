@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Large organisations are systematically biased toward expensive, visible interventions and blind to tiny, cheap solutions that can have far greater effect — the AOL Time Warner merger was noticed by no one, but a Virgin salt shaker engraved "Stolen from Virgin Atlantic" was remembered for years.
+- People in power who also control large budgets will always gravitate toward big, expensive solutions because there is no one in their organisation whose job is to look for small, cheap ones.
+- "Terminal 5 syndrome": brilliant engineering creates a world-class terminal, then catastrophic signage destroys the experience — the big stuff gets big expensive attention while the small stuff is ignored.
+- A kilo of lentils given to mothers who brought children for inoculation dramatically improved vaccination rates in India — tiny, cheap interventions frequently outperform expensive compulsion by orders of magnitude.
+- Suggesting online banking should display balances as opt-in rather than default would likely double usage at negligible cost, yet no one implements it because those with power want to do big expensive things.
+- What is needed is a "Chief Detail Officer" — someone with significant authority but no budget, whose sole job is to find the small, cheap interventions that produce outsized results.
 
 ## Stories & Examples
 

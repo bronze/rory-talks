@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Marketing's mindset — looking at business through the eyes of the customer — is more valuable than what the marketing department actually does; the thinking matters more than the output.
+- Cost reduction is not a strategy: cutting costs without holding the cost-cutter responsible for any resulting destruction of value is a common and damaging form of misaligned incentives.
+- Marketing has an opportunity mindset while finance has an efficiency mindset; fetishising cost reduction leads companies to destroy the very opportunities that drive long-term growth.
+- Nike's attempt to cut out wholesale and go direct-to-consumer showed that optimising for the most efficient transaction type reduces the total number of customers — efficiency and volume are often in conflict.
+- Small, unexpected acts of customer delight (like the DoubleTree cookie) can have disproportionately large effects on loyalty compared to broad marketing campaigns.
+- Businesses almost always underprice rather than overprice; procurement departments rewarded purely for cost reduction routinely destroy more value than they save through missed opportunities.
 
 ## Stories & Examples
 

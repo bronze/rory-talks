@@ -22,7 +22,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- The opposite of a good idea can be another good idea: insisting on a single right answer eliminates originality, because truly valuable strategies are those whose opposite is not obviously stupid.
+- Don't design for the average — solutions optimised for a single representative person satisfy almost nobody; look at the extremes, where radical preferences reveal opportunities the mainstream misses.
+- It doesn't pay to be logical if everyone else is being logical: in business as in military strategy, predictability makes you a target, and the real competitive advantage lies in exploiting what competitors' models get wrong.
+- Trying to make something efficient and trying to make it effective are not the same thing — flowers "wasted" resources on costly displays 20 million years ago because extravagance is precisely what conveys trustworthy signals.
+- Context is a marketing super-weapon: once you understand that people perceive the world subjectively, you can improve their experience without changing the product at all.
+- Dare to be trivial: in complex systems, very small changes can have enormous effects, and the insistence on proportionality — that big problems require big interventions — is one of the most persistent and costly mistakes in business and policy.
 
 ## Stories & Examples
 

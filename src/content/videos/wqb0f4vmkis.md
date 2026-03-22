@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- There are no creative processes, only checklists: a rigid procedure assumes you know the order of operations in advance, which is only possible when you are repeating something already done — genuinely new work requires a different mindset.
+- Price is a feeling, not a number: a product that is cheaper and objectively better triggers suspicion, because consumers use price as a quality signal and "why is this so cheap?" is a rational question given the information asymmetry.
+- Cialdini's principles of influence — scarcity, social proof, authority — recur across categories because they tap into deep evolutionary heuristics, not because salespeople invented them; understanding them is understanding human nature.
+- Scarcity and social proof can appear contradictory (few people have it vs. everyone has it) yet both work as quality signals — showing that different psychological levers apply in different market contexts.
+- Sonic branding and the left-brain/right-brain distinction in Iain McGilchrist's work suggest that much of our most important communication bypasses rational analysis entirely and operates through pattern recognition.
+- The most durable competitive advantage often comes from doing something that competitors think is irrational — physical direct mail that a tech company calls "annoyingly effective" works precisely because no competitor is rational enough to copy it.
 
 ## Stories & Examples
 

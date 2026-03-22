@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- AI's commercial pressure will push companies to deploy it for cost-cutting and automation rather than value creation, because cost savings are immediate and quantifiable while customer experience improvements are deferred and uncertain.
+- The biggest risk in the online economy is that bad customer service experiences don't just damage individual brands — they suppress the entire online channel, because once-bitten consumers avoid transacting online at all.
+- Trust is not a price-trust tradeoff: below a reliability threshold of roughly 97%, people refuse to transact regardless of discount offered, because trust operates as a binary threshold rather than a continuous variable.
+- Customer experience is disproportionately determined by the human moments — the posty who leaves a parcel in the porch, the call centre agent who is genuinely helpful — not by the objective service metrics companies spend millions measuring.
+- Brands need metrics that capture what makes them distinctively them, not just what makes them generically good; a company that measures "how often customers laugh" during a journey is measuring something no competitor can copy.
+- "It's not just what people think of brands — it's what people think brands think of them": customer experience is fundamentally relational, and people are highly sensitive to whether they are being treated as individuals or as a number.
 
 ## Stories & Examples
 

@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Comparison drives unhappiness more than absolute circumstances do: wealth is always perceived relative to those around us, not in absolute terms, making status competition a treadmill with no finish line.
+- The property market is fundamentally different from a commodity market, yet people apply the same logic — maxing out borrowing capacity and treating housing as an investment vehicle rather than a use good.
+- Online dating sites, like real estate, reveal how poorly numerical filters and rational choice-architecture represent how humans actually make decisions about high-stakes, emotionally loaded choices.
+- Bottom-up observation of actual behaviour consistently produces better insights than imposing a top-down theory and cherry-picking the evidence that fits it.
+- Political and economic models succeed partly by exaggerating their wins and burying their failures — the efficient market hypothesis works in narrow commodity markets but is nonsense applied to property or dating.
+- Small contextual changes can have enormous effects on behaviour; the order in which you present choices, the framing of a price, and the way a question is asked all shape outcomes far more than people assume.
 
 ## Stories & Examples
 

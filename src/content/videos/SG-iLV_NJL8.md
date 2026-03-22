@@ -22,7 +22,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Engineering and logistics optimise for objective, measurable quantities like speed and capacity, but humans experience travel subjectively — the quality of time matters more than its quantity beyond a basic threshold.
+- The Heathrow Pod parking system is more popular than the short-stay car park despite being further away and sometimes more expensive, simply because riding a driverless pod is fun — an unmeasured but real form of value.
+- Bees devote roughly 20% of their foraging to random exploration that ignores the waggle dance; this explore-exploit trade-off is the same mechanism that makes innovation possible and over-optimisation lethal.
+- Most breakthrough products — Dyson, Red Bull, Nespresso, Uber — made no sense in advance from market research or logic; they only became obvious in retrospect, which means pre-rationalisation systematically blocks the most valuable ideas.
+- Revenue management in travel over-relies on the price lever; loyalty points, social proof ("least crowded flight"), and behavioural framing can shift passenger behaviour at far lower cost.
+- The five human motivators that don't appear in economic models but deeply shape travel experience: status, certainty, autonomy, relatedness, and fairness.
 
 ## Stories & Examples
 

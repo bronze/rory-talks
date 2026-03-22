@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Business outcomes are fat-tailed: a tiny number of decisions and lucky events determine most of the results, making rigid optimisation of every action counterproductive.
+- Large organisations demand proof before trying anything new, but genuinely innovative ideas have no prior evidence by definition — the requirement for proof systematically excludes the most valuable opportunities.
+- Around 20% of your time and resources should be deliberately exploratory and randomised; pure exploitation of existing knowledge eventually leaves you blindsided by change.
+- Social proof is powerful but can be misleading — Android phone popularity is a more reliable quality signal than iPhone popularity because Android buyers make choices despite fashion rather than because of it.
+- The education system over-selects for a narrow set of skills at a single point in time, creating bottlenecks; a healthier society offers plurality of opportunity across different abilities and different moments in life.
+- The internet has dramatically reduced geographic inequality in access to information and stimulus, quietly giving people from less privileged backgrounds exposure to a far wider world of ideas.
 
 ## Stories & Examples
 

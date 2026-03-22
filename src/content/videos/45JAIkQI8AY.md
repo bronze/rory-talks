@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Labelling a low-fat biscuit as "low fat" on the packaging reduced sales, because the label primed people to expect worse taste — even though blind taste tests showed no difference.
+- Economics lets its practitioners dismiss human behaviour that deviates from the model as "irrational bias"; physicists, by contrast, can never blame atoms for being in a bad mood.
+- Airline websites were designed for business travellers, not leisure travellers — changing the layout so economy prices were always visible first generated £10 million a year in incremental premium-cabin revenue by making the price comparison relative rather than absolute.
+- Changing a button label from "Find flights" to "Find my flights" measurably increased airline bookings; tiny wording changes can outperform expensive engineering solutions.
+- Coffee shop sales data showing declining demand near closing time may actually reflect staff mopping floors and stacking chairs — a confounding behavioural variable that looks like lack of consumer appetite.
+- Fame compounds: the more well-known a brand or person becomes, the more opportunities come to them rather than having to be hunted down, creating a self-reinforcing advantage.
 
 ## Stories & Examples
 

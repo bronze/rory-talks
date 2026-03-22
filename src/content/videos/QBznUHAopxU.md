@@ -24,7 +24,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- People cannot choose in the absence of comparison — AI that returns a single perfect answer misunderstands how humans actually decide; you need alternatives to choose between, not an optimised singleton.
+- The "Doorman Fallacy": replacing a hotel doorman with an automatic door captures the one measurable function (opening doors) while destroying the many unmeasurable ones — security, status, luggage, recognising regulars.
+- Trust is not a rational tradeoff against price: below a threshold of about 97% positive feedback on eBay, people will not transact at any price, because trust is binary rather than a quantity to be weighed.
+- The single biggest determinant of whether someone likes Royal Mail was whether they liked their postman — not service reliability metrics, because human interaction disproportionately shapes our overall brand perception.
+- We use trust in people as a proxy for trust in products: a car seller who haggles over a fridge signals untrustworthiness about the entire transaction, because evolved people-reading skills generalise across the relationship.
+- The efficiency trap in tech — defining jobs narrowly to make them automatable — systematically destroys the tacit, relational value that drives customer loyalty and premium pricing.
 
 ## Stories & Examples
 

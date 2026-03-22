@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- We overestimate the risk of career change and grossly underestimate the risk of staying put: a lost salary is concrete and visible, but the opportunity cost of the wrong job is invisible and never appears on a balance sheet.
+- Success is heavily fat-tailed: five or six decisions or lucky events typically determine most of a career's outcome, making exploration and optionality far more valuable than perfecting the existing path.
+- Timing matters enormously in business — Gates, Jobs and Grove could only have done what they did if born within a narrow window, and many failures are really timing failures rather than idea failures.
+- People who go independent almost universally say they wish they had done it sooner; that behavioural observation is strong evidence that the fear of change is systematically miscalibrated.
+- About 20% of your activities should be deliberately randomised and exploratory — this is not wasted time but the mechanism by which lucky discoveries and unexpected opportunities are generated.
+- Fame reduces the cost of opportunity acquisition: once you are well known, opportunities come to you rather than needing to be hunted, creating a compounding advantage that makes fame one of the highest-return investments available.
 
 ## Stories & Examples
 

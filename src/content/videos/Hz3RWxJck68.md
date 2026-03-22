@@ -25,7 +25,12 @@ tags:
 
 ## Key Takeaways
 
-<!-- Add key takeaways here -->
+- Perceived value is real value: you can create genuine value in the mind through storytelling, framing, and recontextualisation just as surely as you can create it in a factory — and it is often more environmentally efficient.
+- The Uber map is a psychological moonshot: what bothered people about waiting for a taxi was not the duration but the uncertainty, and simply showing a map eliminated that anxiety without reducing wait times at all.
+- Tesla's "vegan leather" is a masterclass in reframing — the same material that would have been dismissed as "plastic seats" becomes desirable through a different name, demonstrating that language shapes perception profoundly.
+- Stories are the PDF files of human information: they are the format in which we store and transmit knowledge, which is why narrative and anecdote are more memorable and persuasive than data alone.
+- If you want to improve how people feel about something, psychology is nearly always a more fruitful avenue than attempting further rational or engineering improvement.
+- The NHS and other public services could dramatically improve patient satisfaction through low-cost behavioural and contextual interventions rather than expensive structural changes.
 
 ## Stories & Examples
 
