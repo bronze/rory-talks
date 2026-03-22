@@ -1,4 +1,5 @@
 ---
+import Search from './Search.tsx';
 ---
 
 <nav class="border-b border-border">
@@ -9,5 +10,6 @@
     <a href="/" class="font-mono text-[0.72rem] text-muted-foreground hover:text-foreground transition-colors">
       All talks
     </a>
+    <Search client:load />
   </div>
 </nav>

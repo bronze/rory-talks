@@ -7,7 +7,7 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
-- [ ] **Search** — full-text search across titles, takeaways, and/or transcripts; search input lives in the nav header
+- [x] **Search** — client-side search across titles, channels, and takeaways; search icon + modal overlay in nav header
 - [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and/or a dedicated page
 - [ ] **Tags / topics** — group talks by theme (behavioural economics, marketing, psychology, etc.)
 
