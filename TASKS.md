@@ -8,6 +8,9 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
+- [ ] **Transcript formatting** — review and improve how transcripts are parsed/displayed; `45JAIkQI8AY.md` starts with `Kind: captions Language: en` junk that should be stripped; check other transcripts for similar artifacts
+- [ ] **Transcripts on talk pages** — wire up transcript rendering on `/talks/[id].astro`; currently fetched but `<transcriptContent />` may not render correctly (Astro dynamic component syntax)
+
 - [ ] **Key takeaways** — use Claude to read transcripts and fill in the `## Key Takeaways` sections in each `src/content/videos/{id}.md`
 - [ ] **Recurring stories** — identify stories and examples Rory tells across multiple talks (Eurostar, marmalade sandwich, etc.) and tag them
 - [ ] **Search** — full-text search across titles, takeaways, and/or transcripts
