@@ -16,6 +16,19 @@ function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
 }
 
+function Highlight({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="bg-primary/25 text-foreground rounded-sm px-0.5 not-italic">{text.slice(idx, idx + query.length)}</mark>
+      {text.slice(idx + query.length)}
+    </>
+  );
+}
+
 export default function Search() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -156,7 +169,7 @@ export default function Search() {
                             </p>
                             {v.snippet && (
                               <p className="font-mono text-[0.68rem] text-muted-foreground mt-1 line-clamp-2 italic">
-                                {v.snippet}
+                                <Highlight text={v.snippet} query={query} />
                               </p>
                             )}
                           </div>
