@@ -1624,7 +1624,7 @@ Is there anything else that I've missed that we should talk about?
 
 I find, it's funny, we talked about that Japanese restaurant cuz I find the restaurant industry very interesting, whether it's the quick service restaurant industry or the high-end restaurant industry.
 
-Uh Will Gdara's book by the way unreasonable hospitality is utterly fascinating for that.
+Uh Will Guidara's book by the way Unreasonable Hospitality is utterly fascinating for that.
 
 One of the things I suppose I suppose we could sort of echo Dan a bit here and also Gary Hamill in his book humanocracy which is I think the you know we could ask the question what are the really big barriers to economic growth and often I think we're looking in the wrong place.
 

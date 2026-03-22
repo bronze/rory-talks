@@ -4,7 +4,6 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
-- [ ] **Key takeaways** — use Claude to read each transcript and write 4–6 bullet takeaways into the `## Key Takeaways` section of each `src/content/videos/{id}.md`; display on talk pages
 
 ## Backlog
 
@@ -26,3 +25,4 @@ A running list of things to build, improve, or investigate.
 - [x] Local thumbnails via `scripts/fetch_thumbnails.py` — Astro `<Image>` serves WebP with responsive srcset; fixes `dkLcwHmnPV4` gray placeholder issue
 - [x] Persistent nav header with site wordmark and links
 - [x] Transcript formatting — stripped `Kind: captions Language: en` artifact from all 23 files; `parse_vtt` updated to skip `Kind:`/`Language:` lines
+- [x] Key takeaways — 4–6 bullets generated for all 23 talks via `scripts/generate_takeaways.py`; displayed on talk pages via existing `<Content />` rendering

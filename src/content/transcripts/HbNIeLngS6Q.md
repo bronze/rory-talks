@@ -196,7 +196,7 @@ The double tree cookie is the example I always give.
 
 Apologies to people who've heard that before.
 
-But occasionally, and there's a wonderful book actually called unreasonable hospitality by Will Gdara.
+But occasionally, and there's a wonderful book actually called Unreasonable Hospitality by Will Guidara.
 
 Um, which is the amazing power of giving your customer more than they expect because fundamentally in any relationship, these things needn't be massively expensive. by the way.
 

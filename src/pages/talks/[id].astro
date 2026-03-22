@@ -30,11 +30,11 @@ const formattedViews = data.view_count >= 1_000_000
   ? `${(data.view_count / 1_000).toFixed(0)}K`
   : data.view_count > 0 ? data.view_count.toString() : null;
 
-let transcriptContent = null;
-if (transcript) {
-  const rendered = await render(transcript);
-  transcriptContent = rendered.Content;
-}
+// Parse takeaways from markdown body
+const takeawaysMatch = video.body?.match(/## Key Takeaways\n\n((?:- .+\n?)+)/);
+const takeaways = takeawaysMatch
+  ? takeawaysMatch[1].split('\n').filter((l: string) => l.startsWith('- ')).map((l: string) => l.slice(2).trim())
+  : [];
 ---
 
 <Base title={`${data.title} — Rory Sutherland`} description={data.description}>
@@ -83,22 +83,25 @@ if (transcript) {
       </div>
     </div>
 
-    <!-- Notes from markdown body -->
-    <div class="border-t border-border pt-10 prose-rory">
-      <Content />
-    </div>
-
-    <!-- Transcript -->
-    {transcript && transcriptContent && (
-      <div class="border-t border-border mt-12 pt-10">
-        <h2 class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-6">
-          Transcript
-        </h2>
-        <div class="prose-rory">
-          <transcriptContent />
-        </div>
+    <!-- Key Takeaways -->
+    {takeaways.length > 0 && (
+      <div class="border-t border-border pt-10">
+        <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-4">Key Takeaways</p>
+        <ul class="space-y-3">
+          {takeaways.map((t: string) => (
+            <li class="flex gap-3 text-[0.95rem] text-muted-foreground leading-relaxed">
+              <span class="text-primary mt-[0.35rem] shrink-0">—</span>
+              <span>{t}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     )}
+
+    <!-- Remaining content (Stories & Examples, Notes, etc.) -->
+    <div class:list={['prose-rory', takeaways.length > 0 && 'hide-first-section']}>
+      <Content />
+    </div>
 
   </main>
 </Base>
@@ -172,6 +175,12 @@ if (transcript) {
   /* Hide empty placeholder sections */
   .prose-rory :global(p:has(+ ul:empty)),
   .prose-rory :global(ul:empty) {
+    display: none;
+  }
+
+  /* Suppress Key Takeaways from <Content /> when rendered separately above */
+  .hide-first-section :global(h2:first-child),
+  .hide-first-section :global(h2:first-child + ul) {
     display: none;
   }
 </style>
