@@ -4,11 +4,10 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
+- [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and/or a dedicated page
 
 ## Backlog
 
-- [x] **Search** — client-side search across titles, channels, and takeaways; search icon + modal overlay in nav header
-- [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and/or a dedicated page
 - [ ] **Tags / topics** — group talks by theme (behavioural economics, marketing, psychology, etc.)
 
 ## Done
@@ -25,4 +24,5 @@ A running list of things to build, improve, or investigate.
 - [x] Local thumbnails via `scripts/fetch_thumbnails.py` — Astro `<Image>` serves WebP with responsive srcset; fixes `dkLcwHmnPV4` gray placeholder issue
 - [x] Persistent nav header with site wordmark and links
 - [x] Transcript formatting — stripped `Kind: captions Language: en` artifact from all 23 files; `parse_vtt` updated to skip `Kind:`/`Language:` lines
-- [x] Key takeaways — 4–6 bullets generated for all 23 talks via `scripts/generate_takeaways.py`; displayed on talk pages via existing `<Content />` rendering
+- [x] Key takeaways — 4–6 bullets generated for all 23 talks via `scripts/generate_takeaways.py`; displayed as styled bullets on talk pages
+- [x] Search — `⌘K` / `Ctrl+K` modal overlay in nav; searches titles, channels, takeaways, and full transcript text; highlights matched term in transcript snippets
