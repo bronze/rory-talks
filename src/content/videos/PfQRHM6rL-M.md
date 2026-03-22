@@ -13,6 +13,7 @@ description: "Rory Sutherland is the Vice Chairman of advertising giant Ogilvy U
 topics:
   - marketing
   - business-strategy
+  - finance
 ---
 
 ## Key Takeaways

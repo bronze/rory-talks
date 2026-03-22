@@ -13,6 +13,7 @@ description: "Rory Sutherland: Why Cost Reduction Isn't A Strategy https://www.b
 topics:
   - business-strategy
   - marketing
+  - finance
 ---
 
 ## Key Takeaways
