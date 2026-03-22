@@ -1,7 +1,12 @@
 import { getCollection } from 'astro:content';
 
 export async function GET() {
-  const videos = await getCollection('videos');
+  const [videos, transcripts] = await Promise.all([
+    getCollection('videos'),
+    getCollection('transcripts'),
+  ]);
+
+  const transcriptMap = new Map(transcripts.map(t => [t.data.id, t.body ?? '']));
 
   const index = videos.map(video => {
     const takeawaysMatch = video.body?.match(/## Key Takeaways\n\n((?:- .+\n?)+)/);
@@ -18,6 +23,7 @@ export async function GET() {
       view_count: video.data.view_count,
       thumbnail: video.data.thumbnail,
       takeaways,
+      transcript: transcriptMap.get(video.data.id) ?? '',
     };
   });
 

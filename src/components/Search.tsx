@@ -9,6 +9,7 @@ interface VideoEntry {
   view_count: number;
   thumbnail: string;
   takeaways: string[];
+  transcript: string;
 }
 
 function formatDate(iso: string) {
@@ -48,14 +49,30 @@ export default function Search() {
     return () => document.removeEventListener('keydown', handler);
   }, []);
 
-  const results = (() => {
+  type Result = VideoEntry & { snippet?: string };
+
+  const results: Result[] = (() => {
     if (!index || query.trim().length < 2) return [];
     const q = query.toLowerCase();
-    return index.filter(v =>
-      v.title.toLowerCase().includes(q) ||
-      v.channel.toLowerCase().includes(q) ||
-      v.takeaways.some(t => t.toLowerCase().includes(q))
-    );
+    return index.flatMap(v => {
+      const inTitle = v.title.toLowerCase().includes(q);
+      const inChannel = v.channel.toLowerCase().includes(q);
+      const inTakeaways = v.takeaways.some(t => t.toLowerCase().includes(q));
+      const transcriptLower = v.transcript.toLowerCase();
+      const transcriptIdx = transcriptLower.indexOf(q);
+      const inTranscript = transcriptIdx !== -1;
+
+      if (!inTitle && !inChannel && !inTakeaways && !inTranscript) return [];
+
+      let snippet: string | undefined;
+      if (!inTitle && !inTakeaways && inTranscript) {
+        const start = Math.max(0, transcriptIdx - 60);
+        const end = Math.min(v.transcript.length, transcriptIdx + query.length + 60);
+        snippet = (start > 0 ? '…' : '') + v.transcript.slice(start, end).trim() + (end < v.transcript.length ? '…' : '');
+      }
+
+      return [{ ...v, snippet }];
+    });
   })();
 
   return (
@@ -137,6 +154,11 @@ export default function Search() {
                             <p className="font-mono text-[0.68rem] text-muted-foreground">
                               {v.channel} · {formatDate(v.upload_date)} · {v.duration_string}
                             </p>
+                            {v.snippet && (
+                              <p className="font-mono text-[0.68rem] text-muted-foreground mt-1 line-clamp-2 italic">
+                                {v.snippet}
+                              </p>
+                            )}
                           </div>
                         </a>
                       </li>
