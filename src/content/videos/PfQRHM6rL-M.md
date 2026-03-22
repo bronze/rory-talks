@@ -10,17 +10,9 @@ duration_string: "1:43:14"
 view_count: 2914
 thumbnail: "https://i.ytimg.com/vi/PfQRHM6rL-M/maxresdefault.jpg"
 description: "Rory Sutherland is the Vice Chairman of advertising giant Ogilvy UK, a behavioural scientist, TED speaker, organiser of the Nudgestock conference and so much more. Most important, he is one of the most original thinkers around. In this wide ranging conversation, he explains what accountants and anal"
-tags:
-  - "Accounting Red Flags"
-  - "Accounting"
-  - "Behind the Balance Sheet"
-  - "How to be a better investor"
-  - "investing school"
-  - "investment training"
-  - "investing education"
-  - "investing in stocks"
-  - "investing in equities for beginners"
-  - "stockmarket"
+topics:
+  - marketing
+  - business-strategy
 ---
 
 ## Key Takeaways

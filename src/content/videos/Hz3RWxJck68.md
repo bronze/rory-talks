@@ -10,17 +10,9 @@ duration_string: "1:38:18"
 view_count: 1485136
 thumbnail: "https://i.ytimg.com/vi/Hz3RWxJck68/maxresdefault.jpg"
 description: "Rory Sutherland is the author of Alchemy, a senior advertising executive, and the man who understands why some ideas connect with people and some ideas don’t. He’s a columnist, an innovator and a trailblazer in the world of marketing and advertising.  0:00 Intro 02:07 The concept of how we value thi"
-tags:
-  - "The Diary Of A CEO"
-  - "podcast"
-  - "the diary of a CEO podcast"
-  - "CEO"
-  - "rory sutherland"
-  - "rory sutherland marketing"
-  - "rory sutherland alchemy"
-  - "rory sutherland life lessons from an ad man"
-  - "marketing"
-  - "how to be good at marketing"
+topics:
+  - marketing
+  - brand
 ---
 
 ## Key Takeaways

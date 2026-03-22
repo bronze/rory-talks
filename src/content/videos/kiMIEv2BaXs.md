@@ -10,7 +10,9 @@ duration_string: "44:14"
 view_count: 248649
 thumbnail: "https://i.ytimg.com/vi/kiMIEv2BaXs/maxresdefault.jpg"
 description: "In a world first, Scott Galloway and Rory Sutherland go head to head to talk about some of the biggest topics in marketing. They lock horns on Scott's controversial statement \"the era of brand is dead\" and why most successful companies don't advertise. You'll also hear the two disagreeing on the J"
-
+topics:
+  - brand
+  - marketing
 ---
 
 ## Key Takeaways

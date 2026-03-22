@@ -10,17 +10,9 @@ duration_string: "22:31"
 view_count: 4213
 thumbnail: "https://i.ytimg.com/vi/45JAIkQI8AY/maxresdefault.jpg"
 description: "#podcast #jakehumphrey #founderstories #businesspodcast Subscribe now and join the RWIH community! https://www.youtube.com/channel/UC2vm00HRiRiNnJao43Ks-Zw?sub_cofirmation=1   What if the biggest breakthroughs in business don’t come from logic, but from noticing what others overlook?  In this episod"
-tags:
-  - "business podcast"
-  - "entrepreneur podcast"
-  - "founder stories"
-  - "leadership interviews"
-  - "brand building"
-  - "startup journeys"
-  - "career defining moments"
-  - "behind the scenes business"
-  - "industry leaders"
-  - "business storytelling"
+topics:
+  - marketing
+  - behavioural-economics
 ---
 
 ## Key Takeaways

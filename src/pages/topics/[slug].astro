@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import VideoCard from '../../components/VideoCard.astro';
+import { formatRuntime } from '../../lib/format';
+
+const TOPIC_LABELS: Record<string, string> = {
+  'marketing': 'Marketing',
+  'behavioural-economics': 'Behavioural Economics',
+  'psychology': 'Psychology',
+  'business-strategy': 'Business Strategy',
+  'brand': 'Brand',
+  'creativity': 'Creativity',
+  'finance': 'Finance',
+};
+
+export async function getStaticPaths() {
+  const allVideos = await getCollection('videos');
+  const slugs = [...new Set(allVideos.flatMap(v => v.data.topics))];
+  return slugs.map(slug => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const label = TOPIC_LABELS[slug] ?? slug;
+
+const allVideos = await getCollection('videos');
+const allTranscripts = await getCollection('transcripts');
+const transcriptIds = new Set(allTranscripts.map(t => t.data.id));
+
+const videos = allVideos
+  .filter(v => v.data.topics.includes(slug))
+  .sort((a, b) => b.data.upload_date.getTime() - a.data.upload_date.getTime());
+
+const totalDuration = videos.reduce((sum, v) => sum + v.data.duration, 0);
+const { hours, mins } = formatRuntime(totalDuration);
+---
+
+<Base title={`${label} — Rory Sutherland`} description={`Rory Sutherland talks on ${label}`}>
+  <main class="max-w-6xl mx-auto px-6 pb-20 sm:px-4">
+
+    <header class="py-14 border-b border-border mb-12 sm:py-10">
+      <a href="/topics" class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary hover:text-foreground transition-colors mb-3 inline-block">
+        ← All topics
+      </a>
+      <h1 class="font-bold text-4xl tracking-tight text-foreground mb-2 sm:text-3xl">
+        {label}
+      </h1>
+      <p class="font-mono text-[0.75rem] text-muted-foreground">
+        {videos.length} talk{videos.length !== 1 ? 's' : ''} · {hours}h {mins}m
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {videos.map(video => (
+        <VideoCard
+          id={video.data.id}
+          title={video.data.title}
+          url={video.data.url}
+          channel={video.data.channel}
+          channel_url={video.data.channel_url}
+          upload_date={video.data.upload_date}
+          duration_string={video.data.duration_string}
+          view_count={video.data.view_count}
+          thumbnail={video.data.thumbnail}
+          hasTranscript={transcriptIds.has(video.data.id)}
+          topics={video.data.topics}
+        />
+      ))}
+    </div>
+
+  </main>
+</Base>

@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatRuntime } from '../../lib/format';
+
+const TOPIC_LABELS: Record<string, string> = {
+  'marketing': 'Marketing',
+  'behavioural-economics': 'Behavioural Economics',
+  'psychology': 'Psychology',
+  'business-strategy': 'Business Strategy',
+  'brand': 'Brand',
+  'creativity': 'Creativity',
+  'finance': 'Finance',
+};
+
+const allVideos = await getCollection('videos');
+
+const topicMap = new Map<string, typeof allVideos>();
+for (const video of allVideos) {
+  for (const topic of video.data.topics) {
+    if (!topicMap.has(topic)) topicMap.set(topic, []);
+    topicMap.get(topic)!.push(video);
+  }
+}
+
+const topics = [...topicMap.entries()]
+  .map(([slug, videos]) => {
+    const totalDuration = videos.reduce((sum, v) => sum + v.data.duration, 0);
+    const { hours, mins } = formatRuntime(totalDuration);
+    return { slug, label: TOPIC_LABELS[slug] ?? slug, count: videos.length, hours, mins };
+  })
+  .sort((a, b) => b.count - a.count);
+---
+
+<Base title="Topics — Rory Sutherland" description="Browse Rory Sutherland talks by topic">
+  <main class="max-w-4xl mx-auto px-6 pb-20 sm:px-4">
+
+    <header class="py-14 border-b border-border mb-12 sm:py-10">
+      <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-3">Browse by topic</p>
+      <h1 class="font-bold text-4xl tracking-tight text-foreground sm:text-3xl">Topics</h1>
+    </header>
+
+    <ul class="divide-y divide-border">
+      {topics.map(({ slug, label, count, hours, mins }) => (
+        <li>
+          <a
+            href={`/topics/${slug}`}
+            class="flex items-center justify-between py-5 group hover:text-primary transition-colors"
+          >
+            <span class="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+              {label}
+            </span>
+            <span class="font-mono text-[0.72rem] text-muted-foreground">
+              {count} talk{count !== 1 ? 's' : ''} · {hours}h {mins}m
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+  </main>
+</Base>

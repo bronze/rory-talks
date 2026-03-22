@@ -10,14 +10,10 @@ duration_string: "18:37"
 view_count: 323778
 thumbnail: "https://i.ytimg.com/vi/UirCaM5kg9E/maxresdefault.jpg"
 description: "Rory Sutherland - Ogilvy Vice Chairman, TED Talk superstar and author of Alchemy - shares his top 10 rules of business and life.  Alchemy is a breakthrough book which explores the power of ideas that don’t make sense, and how they may just be the key to success in our modern world.   Get your copy o"
-tags:
-  - "Rory Sutherland"
-  - "Ogilvy"
-  - "Advertising"
-  - "TED Talks"
-  - "Alchemy"
-  - "Business"
-  - "Power of ideas"
+topics:
+  - behavioural-economics
+  - marketing
+  - creativity
 ---
 
 ## Key Takeaways

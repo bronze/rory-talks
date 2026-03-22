@@ -41,7 +41,7 @@
       "default": "",
       "type": "string"
     },
-    "tags": {
+    "topics": {
       "default": [],
       "type": "array",
       "items": {

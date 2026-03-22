@@ -10,17 +10,8 @@ duration_string: "40:46"
 view_count: 391390
 thumbnail: "https://i.ytimg.com/vi/xXd-g3EL8ow/maxresdefault.jpg"
 description: "Advertising veteran and behavioural science thinker Rory Sutherland joins Tom Swarbrick for a phone-in. He explains why rising productivity and longer working hours no longer translate into greater prosperity and that housing costs and policy blind spots have quietly absorbed the gains that once mad"
-tags:
-  - "lbc"
-  - "lbc live"
-  - "watch lbc"
-  - "interview"
-  - "politics news"
-  - "british politics"
-  - "debate"
-  - "Brexit"
-  - "James O’Brien"
-  - "Iain Dale"
+topics:
+  - finance
 ---
 
 ## Key Takeaways

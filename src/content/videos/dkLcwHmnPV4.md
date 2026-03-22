@@ -10,17 +10,9 @@ duration_string: "16:46"
 view_count: 364955
 thumbnail: "https://i.ytimg.com/vi/dkLcwHmnPV4/maxresdefault.jpg"
 description: "http://www.ted.com It may seem that big problems require big solutions, but ad man Rory Sutherland says many flashy, expensive fixes are just obscuring better, simpler answers. To illustrate, he uses behavioral economics and hilarious examples.  TEDTalks is a daily video podcast of the best talks an"
-tags:
-  - "Rory"
-  - "Sutherland"
-  - "TEDTalks"
-  - "TED"
-  - "talks"
-  - "simplicity"
-  - "simple"
-  - "solutions"
-  - "behavioral"
-  - "economics"
+topics:
+  - marketing
+  - behavioural-economics
 ---
 
 ## Key Takeaways

@@ -64,6 +64,7 @@ const latestYear = Math.max(...years);
           view_count={video.data.view_count}
           thumbnail={video.data.thumbnail}
           hasTranscript={transcriptIds.has(video.data.id)}
+          topics={video.data.topics}
         />
       ))}
     </div>

@@ -13,6 +13,7 @@ interface Props {
   view_count: number;
   thumbnail: string;
   hasTranscript?: boolean;
+  topics?: string[];
 }
 
 const {
@@ -26,7 +27,18 @@ const {
   view_count,
   thumbnail,
   hasTranscript = false,
+  topics = [],
 } = Astro.props;
+
+const TOPIC_LABELS: Record<string, string> = {
+  'marketing': 'Marketing',
+  'behavioural-economics': 'Behavioural Economics',
+  'psychology': 'Psychology',
+  'business-strategy': 'Business Strategy',
+  'brand': 'Brand',
+  'creativity': 'Creativity',
+  'finance': 'Finance',
+};
 
 const formattedDate = formatDate(upload_date);
 const formattedViews = formatViews(view_count);
@@ -91,6 +103,18 @@ const localThumb = localThumbnails[`/src/assets/thumbnails/${id}.jpg`]?.default;
           </>
         )}
       </div>
+      {topics.length > 0 && (
+        <div class="flex flex-wrap gap-1 mt-2.5" onclick="event.stopPropagation()">
+          {topics.map(t => (
+            <a
+              href={`/topics/${t}`}
+              class="font-mono text-[0.62rem] tracking-wide px-1.5 py-0.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              {TOPIC_LABELS[t] ?? t}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </a>
 </article>

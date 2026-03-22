@@ -13,6 +13,16 @@ export async function getStaticPaths() {
 const { video } = Astro.props;
 const { data } = video;
 
+const TOPIC_LABELS: Record<string, string> = {
+  'marketing': 'Marketing',
+  'behavioural-economics': 'Behavioural Economics',
+  'psychology': 'Psychology',
+  'business-strategy': 'Business Strategy',
+  'brand': 'Brand',
+  'creativity': 'Creativity',
+  'finance': 'Finance',
+};
+
 const allTranscripts = await getCollection('transcripts');
 const transcript = allTranscripts.find(t => t.data.id === data.id);
 
@@ -56,6 +66,18 @@ const takeaways = takeawaysMatch
       <h1 class="font-bold text-2xl leading-snug text-foreground mb-3 sm:text-xl">
         {data.title}
       </h1>
+      {data.topics.length > 0 && (
+        <div class="flex flex-wrap gap-1.5 mb-4">
+          {data.topics.map((t: string) => (
+            <a
+              href={`/topics/${t}`}
+              class="font-mono text-[0.62rem] tracking-wide px-1.5 py-0.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+            >
+              {TOPIC_LABELS[t] ?? t}
+            </a>
+          ))}
+        </div>
+      )}
       <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.72rem] text-muted-foreground">
         <a
           href={data.channel_url}
