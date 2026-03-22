@@ -8,6 +8,23 @@ const allVideos = await getCollection('videos');
 const allTranscripts = await getCollection('transcripts');
 const transcriptIds = new Set(allTranscripts.map(t => t.data.id));
 
+const TOPIC_LABELS: Record<string, string> = {
+  'marketing': 'Marketing',
+  'behavioural-economics': 'Behavioural Economics',
+  'psychology': 'Psychology',
+  'business-strategy': 'Business Strategy',
+  'brand': 'Brand',
+  'creativity': 'Creativity',
+  'finance': 'Finance',
+};
+
+// Topics ordered by talk count descending
+const topicCounts = new Map<string, number>();
+for (const v of allVideos) {
+  for (const t of v.data.topics) topicCounts.set(t, (topicCounts.get(t) ?? 0) + 1);
+}
+const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1]).map(([slug]) => slug);
+
 // Most recent first
 const videos = allVideos.sort(
   (a, b) => b.data.upload_date.getTime() - a.data.upload_date.getTime()
@@ -50,8 +67,22 @@ const latestYear = Math.max(...years);
       </div>
     </header>
 
+    <!-- Topic filter -->
+    <div class="flex flex-wrap gap-2 mb-10" id="topic-filters">
+      <button
+        class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-primary text-primary transition-colors"
+        data-topic="all"
+      >All ({videos.length})</button>
+      {topics.map(slug => (
+        <button
+          class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+          data-topic={slug}
+        >{TOPIC_LABELS[slug]} ({topicCounts.get(slug)})</button>
+      ))}
+    </div>
+
     <!-- Grid -->
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3" id="video-grid">
       {videos.map(video => (
         <VideoCard
           id={video.data.id}
@@ -71,3 +102,30 @@ const latestYear = Math.max(...years);
 
   </main>
 </Base>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.topic-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#video-grid article');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const topic = btn.dataset.topic!;
+
+      // Update button styles
+      buttons.forEach(b => {
+        const active = b.dataset.topic === topic;
+        b.classList.toggle('border-primary', active);
+        b.classList.toggle('text-primary', active);
+        b.classList.toggle('border-border', !active);
+        b.classList.toggle('text-muted-foreground', !active);
+      });
+
+      // Show/hide cards
+      cards.forEach(card => {
+        const cardTopics = card.dataset.topics?.split(',') ?? [];
+        const visible = topic === 'all' || cardTopics.includes(topic);
+        card.style.display = visible ? '' : 'none';
+      });
+    });
+  });
+</script>
