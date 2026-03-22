@@ -4,7 +4,7 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
-- [ ] **Testing / TDD** — set up Vitest for unit tests; add tests for utility functions (date formatting, view count formatting, VTT parsing); consider Playwright for e2e
+- [ ] **Testing / TDD** — ~~Vitest + pytest set up, format utilities extracted and tested~~ consider adding Playwright for e2e
 
 ## Backlog
 

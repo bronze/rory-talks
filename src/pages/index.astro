@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import VideoCard from '../components/VideoCard.astro';
+import { formatRuntime } from '../lib/format';
 
 const allVideos = await getCollection('videos');
 const allTranscripts = await getCollection('transcripts');
@@ -14,8 +15,7 @@ const videos = allVideos.sort(
 
 // Stats
 const totalDuration = videos.reduce((sum, v) => sum + v.data.duration, 0);
-const totalHours = Math.floor(totalDuration / 3600);
-const totalMins = Math.floor((totalDuration % 3600) / 60);
+const { hours: totalHours, mins: totalMins } = formatRuntime(totalDuration);
 const years = videos.map(v => v.data.upload_date.getFullYear());
 const earliestYear = Math.min(...years);
 const latestYear = Math.max(...years);

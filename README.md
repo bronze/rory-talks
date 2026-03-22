@@ -16,7 +16,8 @@ src/content/
   transcripts/     # one .md per talk — full auto-generated transcript
 
 scripts/
-  fetch-transcripts.py   # downloads transcripts for all videos via yt-dlp
+  fetch_transcripts.py        # downloads transcripts for all videos via yt-dlp
+  test_fetch_transcripts.py   # pytest tests for VTT parsing
 ```
 
 Each video file (`src/content/videos/{id}.md`) has sections for **Key Takeaways**, **Stories & Examples**, and **Notes** — meant to be filled in manually or by Claude after reading the transcript.
@@ -31,7 +32,7 @@ pnpm dev
 ## Fetching Transcripts
 
 ```bash
-python3 scripts/fetch-transcripts.py
+python3 scripts/fetch_transcripts.py
 ```
 
 Downloads auto-generated English subtitles for all 23 videos and saves them as markdown in `src/content/transcripts/`. Skips videos that already have a transcript. Re-running is safe.
@@ -39,8 +40,15 @@ Downloads auto-generated English subtitles for all 23 videos and saves them as m
 ## Adding a New Video
 
 1. Add the video to the YouTube playlist
-2. Re-run `scripts/fetch-transcripts.py` to get the transcript
+2. Re-run `scripts/fetch_transcripts.py` to get the transcript
 3. Manually create `src/content/videos/{id}.md` with the frontmatter schema matching the existing files
+
+## Testing
+
+```bash
+pnpm test                              # TypeScript unit tests (Vitest)
+python3 -m pytest scripts/            # Python tests (pytest)
+```
 
 ## Working with Claude
 

@@ -1,4 +1,6 @@
 ---
+import { formatDate, formatViews } from '../lib/format';
+
 interface Props {
   id: string;
   title: string;
@@ -25,16 +27,8 @@ const {
   hasTranscript = false,
 } = Astro.props;
 
-const formattedDate = upload_date.toLocaleDateString('en-GB', {
-  month: 'long',
-  year: 'numeric',
-});
-
-const formattedViews = view_count >= 1_000_000
-  ? `${(view_count / 1_000_000).toFixed(1)}M`
-  : view_count >= 1_000
-  ? `${(view_count / 1_000).toFixed(0)}K`
-  : view_count > 0 ? view_count.toString() : null;
+const formattedDate = formatDate(upload_date);
+const formattedViews = formatViews(view_count);
 ---
 
 <article class="group rounded-sm border border-border bg-card transition-colors duration-200 hover:border-muted-foreground/40 hover:bg-secondary overflow-hidden">

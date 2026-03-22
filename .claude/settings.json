@@ -3,7 +3,7 @@
     "allow": [
       "Bash(yt-dlp --list-subs:*)",
       "Bash(yt-dlp --skip-download:*)",
-      "Bash(python3 scripts/fetch-transcripts.py:*)"
+      "Bash(python3 scripts/fetch_transcripts.py:*)"
     ]
   }
 }
