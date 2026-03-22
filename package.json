@@ -12,7 +12,8 @@
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "fetch:thumbnails": "python3 scripts/fetch_thumbnails.py"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.1",

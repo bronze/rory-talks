@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { formatDate, formatViews } from '../lib/format';
 
 interface Props {
@@ -29,6 +30,12 @@ const {
 
 const formattedDate = formatDate(upload_date);
 const formattedViews = formatViews(view_count);
+
+const localThumbnails = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/thumbnails/*.jpg',
+  { eager: true }
+);
+const localThumb = localThumbnails[`/src/assets/thumbnails/${id}.jpg`]?.default;
 ---
 
 <article class="group rounded-sm border border-border bg-card transition-colors duration-200 hover:border-muted-foreground/40 hover:bg-secondary overflow-hidden">
@@ -36,13 +43,22 @@ const formattedViews = formatViews(view_count);
 
     <!-- Thumbnail -->
     <div class="relative aspect-video overflow-hidden bg-background">
-      <img
-        src={thumbnail}
-        alt={title}
-        loading="lazy"
-        class="w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-85"
-        onerror={`this.src='https://i.ytimg.com/vi/${id}/hqdefault.jpg'`}
-      />
+      {localThumb ? (
+        <Image
+          src={localThumb}
+          alt={title}
+          widths={[400, 800]}
+          sizes="(max-width: 640px) 100vw, 400px"
+          class="w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-85"
+        />
+      ) : (
+        <img
+          src={thumbnail}
+          alt={title}
+          loading="lazy"
+          class="w-full h-full object-cover transition-opacity duration-200 group-hover:opacity-85"
+        />
+      )}
       <span class="absolute bottom-2 right-2 bg-black/85 text-foreground font-mono text-[0.7rem] px-1.5 py-0.5 rounded-sm tracking-wide">
         {duration_string}
       </span>
