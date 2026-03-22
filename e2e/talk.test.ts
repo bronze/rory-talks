@@ -9,10 +9,10 @@ test('talk page has YouTube embed', async ({ page }) => {
   await expect(iframe).toBeVisible();
 });
 
-test('talk page has back link to index', async ({ page }) => {
+test('talk page has nav link to index', async ({ page }) => {
   await page.goto(`/talks/${TALK_ID}`);
-  const backLink = page.locator('a[href="/"]');
-  await expect(backLink).toBeVisible();
+  const navLink = page.locator('nav a[href="/"]');
+  await expect(navLink).toBeVisible();
 });
 
 test('talk page shows title and channel', async ({ page }) => {

@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en What are the hidden psychological or emotional risks of not changing careers and staying stuck? >> It's opportunity cost.
+What are the hidden psychological or emotional risks of not changing careers and staying stuck? >> It's opportunity cost.
 
 We never think of that.
 

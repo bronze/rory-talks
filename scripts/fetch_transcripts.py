@@ -23,7 +23,8 @@ def parse_vtt(vtt_text: str) -> str:
     for line in lines:
         line = line.strip()
         # Skip headers, timestamps, and empty lines
-        if not line or line == 'WEBVTT' or '-->' in line or line.isdigit():
+        if not line or line == 'WEBVTT' or '-->' in line or line.isdigit() \
+                or line.startswith('Kind:') or line.startswith('Language:'):
             continue
         # Strip VTT tags like <00:00:01.000><c> etc.
         line = re.sub(r'<[^>]+>', '', line)

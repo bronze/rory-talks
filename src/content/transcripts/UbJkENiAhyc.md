@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en There are about 200 million people in the world who if Tim Cook stood up and announced that the next iPhone was going to be a turd on a stick, they'd still rush out and queue and buy it.
+There are about 200 million people in the world who if Tim Cook stood up and announced that the next iPhone was going to be a turd on a stick, they'd still rush out and queue and buy it.
 
 One of the UK's biggest podcast guests is back on Jimmy's Jobs of the Future.
 

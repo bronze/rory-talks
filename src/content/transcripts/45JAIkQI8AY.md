@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en All decisions in government are currently being taken by economists or lawyers basically and what you might call persuasion or marketing or even just consumer understanding and psychology isn't getting a look in.
+All decisions in government are currently being taken by economists or lawyers basically and what you might call persuasion or marketing or even just consumer understanding and psychology isn't getting a look in.
 
 About about a year later I became imagine two uh president of the IPA which is the advertising trade body in the UK.
 

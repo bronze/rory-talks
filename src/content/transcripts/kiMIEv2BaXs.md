@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en [Music] [Applause] Ladies and gentlemen, welcome back to the uncensored CMO.
+[Music] [Applause] Ladies and gentlemen, welcome back to the uncensored CMO.
 
 Now, we have a returning guest in this episode, Professor Scott Galloway.
 

@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en I keep hearing people saying you will say to your AI find me a skiing holiday and it will provide you with a perfect skiing holiday and I keep saying people don't decide like that.
+I keep hearing people saying you will say to your AI find me a skiing holiday and it will provide you with a perfect skiing holiday and I keep saying people don't decide like that.
 
 When you allow tech bros too much power over decision-m along with their running dog lackey in kind of management consultancy you're optimizing for something which may be very very distant from what your real world customers really care about. >> What makes Dyson so effective at advertising?
 

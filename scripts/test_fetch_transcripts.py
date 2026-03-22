@@ -57,6 +57,14 @@ def test_decodes_html_entities():
     assert "Bread & butter" in result
 
 
+def test_strips_kind_and_language_metadata():
+    vtt = "WEBVTT\n\nKind: captions\nLanguage: en\n\n00:00:01.000 --> 00:00:03.000\nHello world."
+    result = parse_vtt(vtt)
+    assert "Kind:" not in result
+    assert "Language:" not in result
+    assert "Hello world" in result
+
+
 def test_empty_vtt_returns_empty_string():
     result = parse_vtt("WEBVTT\n\n")
     assert result == ""

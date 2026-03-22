@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en for people who don't know your work, could you give us a brief explanation of of what you do? >> So, I've worked in advertising for nearly 40 years, and what I accidentally discovered was that what people in advertising and marketing do is quite important.
+for people who don't know your work, could you give us a brief explanation of of what you do? >> So, I've worked in advertising for nearly 40 years, and what I accidentally discovered was that what people in advertising and marketing do is quite important.
 
 However, what's really, really important is how they think. and we've probably made the mistake of promoting ourselves and justifying ourselves to finance on the basis of the short-term return of whatever it is we did.
 

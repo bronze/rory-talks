@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en So marketing is much much bigger than a mere department.
+So marketing is much much bigger than a mere department.
 
 It's the weather.
 

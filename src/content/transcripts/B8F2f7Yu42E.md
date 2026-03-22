@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en I don't think attention spans are actually dwindling.
+I don't think attention spans are actually dwindling.
 
 I think they're polarizing.
 

@@ -2,6 +2,10 @@
 
 A curated archive of Rory Sutherland talks, built with Astro.
 
+## Tasks
+
+See `TASKS.md` for the current task list and backlog.
+
 ## Docs
 
 - Astro: https://docs.astro.build/llms.txt

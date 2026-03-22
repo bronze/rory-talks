@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en This is both a very exciting and a very frightening time I think because effectively whether AI is good or bad and there's a tendency for everybody to treat AI bit like a football team.
+This is both a very exciting and a very frightening time I think because effectively whether AI is good or bad and there's a tendency for everybody to treat AI bit like a football team.
 
 It's something you've either got to support unquestioningly or you've got to hate violently for no rational reason.
 

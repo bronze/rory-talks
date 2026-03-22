@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en Absolute [applause] honor.
+Absolute [applause] honor.
 
 Thank you.
 

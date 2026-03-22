@@ -4,7 +4,7 @@ source: "auto"
 language: "en"
 ---
 
-Kind: captions Language: en Marketing has an opportunity mindset and finance has an efficiency and cost reduction mindset.
+Marketing has an opportunity mindset and finance has an efficiency and cost reduction mindset.
 
 You would be absolutely insane if you if you lived your entire life only with an opportunistic mindset.
 
