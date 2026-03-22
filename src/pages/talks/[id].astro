@@ -53,7 +53,7 @@ const takeaways = takeawaysMatch
     <!-- Video embed -->
     <div class="aspect-video w-full mb-8 rounded-sm overflow-hidden border border-border bg-background">
       <iframe
-        src={`https://www.youtube.com/embed/${data.id}`}
+        src={`https://www.youtube.com/embed/${data.id}${data.start_time ? `?start=${data.start_time}` : ''}`}
         title={data.title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -97,7 +97,7 @@ const takeaways = takeawaysMatch
         )}
         <span class="text-border">·</span>
         <a
-          href={data.url}
+          href={data.start_time ? `${data.url}&t=${data.start_time}s` : data.url}
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-primary transition-colors"

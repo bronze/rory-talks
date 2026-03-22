@@ -15,6 +15,7 @@ const videos = defineCollection({
     view_count: z.number().default(0),
     thumbnail: z.string().url(),
     description: z.string().default(''),
+    start_time: z.number().default(0),
     topics: z.array(z.string()).default([]),
   }),
 });
