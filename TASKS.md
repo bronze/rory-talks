@@ -4,12 +4,10 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
-- [x] **Testing / TDD** — Vitest (11 unit tests) + pytest (7 tests) + Playwright e2e (7 tests)
+- [ ] **Transcript formatting** — strip `Kind: captions Language: en` junk from top of some transcripts (e.g. `45JAIkQI8AY.md`); audit all 23 for similar artifacts; improve `parse_vtt` if needed
+- [ ] **Transcripts on talk pages** — fix `<transcriptContent />` rendering in `/talks/[id].astro` (Astro dynamic component syntax issue); display transcript below the video notes
 
 ## Backlog
-
-- [ ] **Transcript formatting** — review and improve how transcripts are parsed/displayed; `45JAIkQI8AY.md` starts with `Kind: captions Language: en` junk that should be stripped; check other transcripts for similar artifacts
-- [ ] **Transcripts on talk pages** — wire up transcript rendering on `/talks/[id].astro`; currently fetched but `<transcriptContent />` may not render correctly (Astro dynamic component syntax)
 
 - [ ] **Key takeaways** — use Claude to read transcripts and fill in the `## Key Takeaways` sections in each `src/content/videos/{id}.md`
 - [ ] **Recurring stories** — identify stories and examples Rory tells across multiple talks (Eurostar, marmalade sandwich, etc.) and tag them
@@ -22,8 +20,10 @@ A running list of things to build, improve, or investigate.
 - [x] Scaffold Astro site with Tailwind CSS + shadcn/ui
 - [x] Seed `videos.json` from YouTube playlist via yt-dlp
 - [x] Generate `src/content/videos/{id}.md` for all 23 talks
-- [x] Write `scripts/fetch-transcripts.py` to download auto-generated subtitles
+- [x] Write `scripts/fetch_transcripts.py` to download auto-generated subtitles
 - [x] Download all 23 transcripts into `src/content/transcripts/`
 - [x] Individual talk pages at `/talks/[id]`
 - [x] Push to GitHub (`bronze/rory-talks`)
-- [x] Vitest + pytest + Playwright test suite
+- [x] Vitest (11 tests) + pytest (7 tests) + Playwright e2e (7 tests)
+- [x] Extract format utilities to `src/lib/format.ts`
+- [x] Local thumbnails via `scripts/fetch_thumbnails.py` — Astro `<Image>` serves WebP with responsive srcset; fixes `dkLcwHmnPV4` gray placeholder issue
