@@ -1,0 +1,36 @@
+---
+id: "Hz3RWxJck68"
+title: "The Marketing Secrets Apple & Tesla Always Use: Rory Sutherland | E165"
+url: "https://www.youtube.com/watch?v=Hz3RWxJck68"
+channel: "The Diary Of A CEO"
+channel_url: "https://www.youtube.com/channel/UCGq-a57w-aPwyi3pW7XLiHw"
+upload_date: 2022-08-01
+duration: 5898
+duration_string: "1:38:18"
+view_count: 1485136
+thumbnail: "https://i.ytimg.com/vi/Hz3RWxJck68/maxresdefault.jpg"
+description: "Rory Sutherland is the author of Alchemy, a senior advertising executive, and the man who understands why some ideas connect with people and some ideas don’t. He’s a columnist, an innovator and a trailblazer in the world of marketing and advertising.  0:00 Intro 02:07 The concept of how we value thi"
+tags:
+  - "The Diary Of A CEO"
+  - "podcast"
+  - "the diary of a CEO podcast"
+  - "CEO"
+  - "rory sutherland"
+  - "rory sutherland marketing"
+  - "rory sutherland alchemy"
+  - "rory sutherland life lessons from an ad man"
+  - "marketing"
+  - "how to be good at marketing"
+---
+
+## Key Takeaways
+
+<!-- Add key takeaways here -->
+
+## Stories & Examples
+
+<!-- Tag recurring stories or examples Rory uses in this talk -->
+
+## Notes
+
+<!-- Personal notes, connections to other talks, etc. -->

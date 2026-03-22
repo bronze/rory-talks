@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "channel": {
+      "type": "string"
+    },
+    "channel_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "upload_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "duration": {
+      "type": "number"
+    },
+    "duration_string": {
+      "type": "string"
+    },
+    "view_count": {
+      "default": 0,
+      "type": "number"
+    },
+    "thumbnail": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "default": "",
+      "type": "string"
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "url",
+    "channel",
+    "channel_url",
+    "upload_date",
+    "duration",
+    "duration_string",
+    "thumbnail"
+  ]
+}

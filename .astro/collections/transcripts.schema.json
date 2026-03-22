@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "source": {
+      "default": "auto",
+      "type": "string",
+      "enum": [
+        "auto",
+        "manual",
+        "whisper"
+      ]
+    },
+    "language": {
+      "default": "en",
+      "type": "string"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
