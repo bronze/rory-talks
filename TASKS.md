@@ -4,7 +4,7 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
-- [ ] **Testing / TDD** — ~~Vitest + pytest set up, format utilities extracted and tested~~ consider adding Playwright for e2e
+- [x] **Testing / TDD** — Vitest (11 unit tests) + pytest (7 tests) + Playwright e2e (7 tests)
 
 ## Backlog
 
@@ -26,3 +26,4 @@ A running list of things to build, improve, or investigate.
 - [x] Download all 23 transcripts into `src/content/transcripts/`
 - [x] Individual talk pages at `/talks/[id]`
 - [x] Push to GitHub (`bronze/rory-talks`)
+- [x] Vitest + pytest + Playwright test suite
