@@ -1,0 +1,184 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const videos = await getCollection('videos');
+  return videos.map(video => ({
+    params: { id: video.data.id },
+    props: { video },
+  }));
+}
+
+const { video } = Astro.props;
+const { data } = video;
+
+const allTranscripts = await getCollection('transcripts');
+const transcript = allTranscripts.find(t => t.data.id === data.id);
+
+const { Content } = await render(video);
+
+const formattedDate = data.upload_date.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const formattedViews = data.view_count >= 1_000_000
+  ? `${(data.view_count / 1_000_000).toFixed(1)}M`
+  : data.view_count >= 1_000
+  ? `${(data.view_count / 1_000).toFixed(0)}K`
+  : data.view_count > 0 ? data.view_count.toString() : null;
+
+let transcriptContent = null;
+if (transcript) {
+  const rendered = await render(transcript);
+  transcriptContent = rendered.Content;
+}
+---
+
+<Base title={`${data.title} — Rory Sutherland`} description={data.description}>
+  <main class="max-w-4xl mx-auto px-6 pb-24 sm:px-4">
+
+    <!-- Back -->
+    <div class="pt-8 mb-10">
+      <a href="/" class="font-mono text-[0.72rem] text-muted-foreground hover:text-primary transition-colors tracking-wide">
+        ← all talks
+      </a>
+    </div>
+
+    <!-- Video embed -->
+    <div class="aspect-video w-full mb-8 rounded-sm overflow-hidden border border-border bg-background">
+      <iframe
+        src={`https://www.youtube.com/embed/${data.id}`}
+        title={data.title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        class="w-full h-full"
+      ></iframe>
+    </div>
+
+    <!-- Meta -->
+    <div class="mb-10">
+      <h1 class="font-bold text-2xl leading-snug text-foreground mb-3 sm:text-xl">
+        {data.title}
+      </h1>
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.72rem] text-muted-foreground">
+        <a
+          href={data.channel_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-foreground transition-colors"
+        >{data.channel}</a>
+        <span class="text-border">·</span>
+        <span>{formattedDate}</span>
+        <span class="text-border">·</span>
+        <span>{data.duration_string}</span>
+        {formattedViews && (
+          <>
+            <span class="text-border">·</span>
+            <span>{formattedViews} views</span>
+          </>
+        )}
+        <span class="text-border">·</span>
+        <a
+          href={data.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary transition-colors"
+        >watch on YouTube ↗</a>
+      </div>
+    </div>
+
+    <!-- Notes from markdown body -->
+    <div class="border-t border-border pt-10 prose-rory">
+      <Content />
+    </div>
+
+    <!-- Transcript -->
+    {transcript && transcriptContent && (
+      <div class="border-t border-border mt-12 pt-10">
+        <h2 class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-6">
+          Transcript
+        </h2>
+        <div class="prose-rory">
+          <transcriptContent />
+        </div>
+      </div>
+    )}
+
+  </main>
+</Base>
+
+<style>
+  /* Prose styles scoped to this page */
+  .prose-rory :global(h2) {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-rory :global(h3) {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-rory :global(p) {
+    color: var(--muted-foreground);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .prose-rory :global(ul),
+  .prose-rory :global(ol) {
+    color: var(--muted-foreground);
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .prose-rory :global(li) {
+    margin-bottom: 0.35rem;
+  }
+
+  .prose-rory :global(li::marker) {
+    color: var(--primary);
+  }
+
+  .prose-rory :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-rory :global(blockquote) {
+    border-left: 2px solid var(--primary);
+    padding-left: 1rem;
+    margin-left: 0;
+    color: var(--muted-foreground);
+    font-style: italic;
+  }
+
+  .prose-rory :global(code) {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85em;
+    background: var(--secondary);
+    padding: 0.1em 0.4em;
+    border-radius: 2px;
+  }
+
+  /* Hide empty placeholder sections */
+  .prose-rory :global(p:has(+ ul:empty)),
+  .prose-rory :global(ul:empty) {
+    display: none;
+  }
+</style>

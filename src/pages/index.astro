@@ -7,177 +7,66 @@ const allVideos = await getCollection('videos');
 const allTranscripts = await getCollection('transcripts');
 const transcriptIds = new Set(allTranscripts.map(t => t.data.id));
 
+// Most recent first
 const videos = allVideos.sort(
-  (a, b) => a.data.upload_date.getTime() - b.data.upload_date.getTime()
+  (a, b) => b.data.upload_date.getTime() - a.data.upload_date.getTime()
 );
-
-// Group by year
-const byYear = videos.reduce<Record<number, typeof videos>>((acc, v) => {
-  const year = v.data.upload_date.getFullYear();
-  if (!acc[year]) acc[year] = [];
-  acc[year].push(v);
-  return acc;
-}, {});
-
-const years = Object.keys(byYear).map(Number).sort((a, b) => a - b);
 
 // Stats
 const totalDuration = videos.reduce((sum, v) => sum + v.data.duration, 0);
 const totalHours = Math.floor(totalDuration / 3600);
 const totalMins = Math.floor((totalDuration % 3600) / 60);
-const earliestYear = years[0];
-const latestYear = years[years.length - 1];
+const years = videos.map(v => v.data.upload_date.getFullYear());
+const earliestYear = Math.min(...years);
+const latestYear = Math.max(...years);
 ---
 
 <Base title="Rory Sutherland — Talks & Interviews">
-  <main>
-    <header>
-      <div class="header-inner">
-        <p class="label">curated archive</p>
-        <h1>Rory Sutherland</h1>
-        <p class="subtitle">Talks, interviews & lectures</p>
-        <div class="stats">
-          <span>{videos.length} talks</span>
-          <span class="sep">·</span>
-          <span>{totalHours}h {totalMins}m total</span>
-          <span class="sep">·</span>
-          <span>{earliestYear}–{latestYear}</span>
-          {transcriptIds.size > 0 && (
-            <>
-              <span class="sep">·</span>
-              <span>{transcriptIds.size} transcripts</span>
-            </>
-          )}
-        </div>
+  <main class="max-w-6xl mx-auto px-6 pb-20 sm:px-4">
+
+    <!-- Header -->
+    <header class="py-16 border-b border-border mb-14 sm:py-10">
+      <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-3">
+        curated archive
+      </p>
+      <h1 class="font-bold text-5xl tracking-tight leading-none text-foreground mb-2 sm:text-3xl">
+        Rory Sutherland
+      </h1>
+      <p class="italic text-lg text-muted-foreground mb-6">
+        Talks, interviews & lectures
+      </p>
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.75rem] text-muted-foreground">
+        <span>{videos.length} talks</span>
+        <span class="text-border">·</span>
+        <span>{totalHours}h {totalMins}m total</span>
+        <span class="text-border">·</span>
+        <span>{earliestYear}–{latestYear}</span>
+        {transcriptIds.size > 0 && (
+          <>
+            <span class="text-border">·</span>
+            <span>{transcriptIds.size} transcripts</span>
+          </>
+        )}
       </div>
     </header>
 
-    <div class="content">
-      {years.map(year => (
-        <section class="year-group">
-          <div class="year-label">
-            <span>{year}</span>
-          </div>
-          <div class="grid">
-            {byYear[year].map(video => (
-              <VideoCard
-                id={video.data.id}
-                title={video.data.title}
-                url={video.data.url}
-                channel={video.data.channel}
-                channel_url={video.data.channel_url}
-                upload_date={video.data.upload_date}
-                duration_string={video.data.duration_string}
-                view_count={video.data.view_count}
-                thumbnail={video.data.thumbnail}
-                hasTranscript={transcriptIds.has(video.data.id)}
-              />
-            ))}
-          </div>
-        </section>
+    <!-- Grid -->
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {videos.map(video => (
+        <VideoCard
+          id={video.data.id}
+          title={video.data.title}
+          url={video.data.url}
+          channel={video.data.channel}
+          channel_url={video.data.channel_url}
+          upload_date={video.data.upload_date}
+          duration_string={video.data.duration_string}
+          view_count={video.data.view_count}
+          thumbnail={video.data.thumbnail}
+          hasTranscript={transcriptIds.has(video.data.id)}
+        />
       ))}
     </div>
+
   </main>
 </Base>
-
-<style>
-  main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px 80px;
-  }
-
-  header {
-    padding: 64px 0 48px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 56px;
-  }
-
-  .label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 12px;
-  }
-
-  h1 {
-    font-family: var(--font-serif);
-    font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    color: var(--text);
-    margin-bottom: 8px;
-  }
-
-  .subtitle {
-    font-family: var(--font-serif);
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 24px;
-  }
-
-  .stats {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0 6px;
-  }
-
-  .sep {
-    color: var(--text-dim);
-  }
-
-  .year-group {
-    margin-bottom: 56px;
-  }
-
-  .year-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .year-label span {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    color: var(--text-dim);
-    white-space: nowrap;
-  }
-
-  .year-label::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background: var(--border);
-    flex: 1;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-
-  @media (max-width: 640px) {
-    main {
-      padding: 0 16px 60px;
-    }
-
-    header {
-      padding: 40px 0 32px;
-    }
-
-    .grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
