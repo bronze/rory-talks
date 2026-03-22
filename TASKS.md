@@ -9,6 +9,7 @@ A running list of things to build, improve, or investigate.
 ## Backlog
 
 - [ ] **Tags / topics** — group talks by theme (behavioural economics, marketing, psychology, etc.)
+- [ ] **Book Section** — books mentioned by him, with thumbnails and links to amazon
 
 ## Done
 
