@@ -189,11 +189,34 @@ export default function Search() {
               </div>
             )}
 
-            {/* Hint when empty */}
+            {/* Quick nav when empty */}
             {query.trim().length < 2 && (
-              <p className="px-4 py-5 font-mono text-[0.7rem] text-muted-foreground">
-                {index ? `${index.length} talks indexed` : 'Loading…'}
-              </p>
+              <div>
+                <p className="px-4 pt-4 pb-2 font-mono text-[0.62rem] tracking-widest uppercase text-muted-foreground/50">
+                  Quick links
+                </p>
+                <ul className="pb-2">
+                  {[
+                    { href: '/',        label: 'All talks',      meta: index ? `${index.length} talks` : '' },
+                    { href: '/topics',  label: 'Topics',         meta: 'Browse by theme' },
+                    { href: '/books',   label: 'Books',          meta: 'Reading list' },
+                    { href: `https://www.youtube.com/playlist?list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`, label: 'YouTube playlist', meta: '↗', external: true },
+                  ].map(({ href, label, meta, external }) => (
+                    <li key={href}>
+                      <a
+                        href={href}
+                        onClick={() => setOpen(false)}
+                        target={external ? '_blank' : undefined}
+                        rel={external ? 'noopener noreferrer' : undefined}
+                        className="flex items-center justify-between px-4 py-2.5 hover:bg-secondary transition-colors"
+                      >
+                        <span className="font-mono text-[0.8rem] text-foreground">{label}</span>
+                        <span className="font-mono text-[0.68rem] text-muted-foreground">{meta}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
         </div>
