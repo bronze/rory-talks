@@ -46,7 +46,7 @@ const topics = [...topicMap.entries()]
   <main class="max-w-4xl mx-auto px-6 pb-20 sm:px-4">
 
     <header class="py-14 border-b border-border mb-12 sm:py-10">
-      <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-3">Browse by topic</p>
+      <p class="font-mono text-xs tracking-[0.15em] uppercase text-primary mb-3">Browse by topic</p>
       <h1 class="font-bold text-4xl tracking-tight text-foreground sm:text-3xl">Topics</h1>
     </header>
 
@@ -62,12 +62,12 @@ const topics = [...topicMap.entries()]
                 {label}
               </span>
               {TOPIC_DESCRIPTIONS[slug] && (
-                <p class="font-mono text-[0.7rem] text-muted-foreground mt-0.5">
+                <p class="font-mono text-sm text-muted-foreground mt-0.5">
                   {TOPIC_DESCRIPTIONS[slug]}
                 </p>
               )}
             </div>
-            <span class="font-mono text-[0.72rem] text-muted-foreground shrink-0">
+            <span class="font-mono text-sm text-muted-foreground shrink-0">
               {count} talk{count !== 1 ? 's' : ''} · {hours}h {mins}m
             </span>
           </a>

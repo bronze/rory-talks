@@ -82,14 +82,14 @@ const takeaways = takeawaysMatch
           {data.topics.map((t: string) => (
             <a
               href={`/topics/${t}`}
-              class="font-mono text-[0.62rem] tracking-wide px-1.5 py-0.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
+              class="font-mono text-xs tracking-wide px-1.5 py-0.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
             >
               {TOPIC_LABELS[t] ?? t}
             </a>
           ))}
         </div>
       )}
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.72rem] text-muted-foreground">
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm text-muted-foreground">
         <a
           href={data.channel_url}
           target="_blank"
@@ -118,10 +118,10 @@ const takeaways = takeawaysMatch
     <!-- Key Takeaways -->
     {takeaways.length > 0 && (
       <div class="border-t border-border pt-10 mb-10">
-        <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-4">Key Takeaways</p>
+        <p class="font-mono text-xs tracking-[0.15em] uppercase text-primary mb-4">Key Takeaways</p>
         <ul class="space-y-3">
           {takeaways.map((t: string) => (
-            <li class="flex gap-3 text-[0.95rem] text-muted-foreground leading-relaxed">
+            <li class="flex gap-3 text-lg text-muted-foreground leading-relaxed">
               <span class="text-primary mt-[0.35rem] shrink-0">—</span>
               <span>{t}</span>
             </li>
@@ -133,7 +133,7 @@ const takeaways = takeawaysMatch
     <!-- Books mentioned -->
     {mentionedBooks.length > 0 && (
       <div class="border-t border-border pt-10 mb-10">
-        <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-5">Books mentioned</p>
+        <p class="font-mono text-xs tracking-[0.15em] uppercase text-primary mb-5">Books mentioned</p>
         <ul class="grid grid-cols-3 gap-3 lg:grid-cols-2 sm:grid-cols-1">
           {mentionedBooks.map(book => {
             const slug = book.id.replace(/\.md$/, '');
@@ -152,7 +152,7 @@ const takeaways = takeawaysMatch
                   )}
                   <div class="min-w-0">
                     <p class="font-bold text-[0.85rem] text-foreground leading-snug line-clamp-2">{book.data.title}</p>
-                    <p class="font-mono text-[0.68rem] text-muted-foreground mt-0.5">{book.data.author}</p>
+                    <p class="font-mono text-sm text-muted-foreground mt-0.5">{book.data.author}</p>
                   </div>
                 </a>
               </li>
@@ -194,7 +194,7 @@ const takeaways = takeawaysMatch
     color: var(--muted-foreground);
     line-height: 1.75;
     margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
 
   .prose-rory :global(ul),
@@ -202,7 +202,7 @@ const takeaways = takeawaysMatch
     color: var(--muted-foreground);
     padding-left: 1.5rem;
     margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     line-height: 1.75;
   }
 
