@@ -117,7 +117,7 @@ const covers = import.meta.glob<{ default: ImageMetadata }>(
                           href={`/talks/${video.id}`}
                           class="font-mono text-sm text-muted-foreground hover:text-primary transition-colors"
                         >
-                          → {video.title.replace(/^Rory Sutherland[:\s–-]+/i, '').replace(/\s*[\|\-–]\s*Rory Sutherland.*$/i, '').trim()}
+                          → {video.title.replace(/^Rory Sutherland\s*[:\–\-]\s*/i, '').replace(/\s*[\|\-–]\s*Rory Sutherland.*$/i, '').trim()}
                         </a>
                       </li>
                     ))}
