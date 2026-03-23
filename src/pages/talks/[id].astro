@@ -106,12 +106,11 @@ const takeaways = takeawaysMatch
             <span>{formattedViews} views</span>
           </>
         )}
-        <span class="text-border">·</span>
         <a
           href={`${data.url}&list=${PLAYLIST_ID}${data.start_time ? `&t=${data.start_time}s` : ''}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:text-primary transition-colors"
+          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-sm bg-[#FF0000]/8 text-[#cc2200] border border-[#FF0000]/15 hover:bg-[#FF0000]/15 transition-colors"
         >watch on YouTube ↗</a>
       </div>
     </div>
