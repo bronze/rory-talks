@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
+
+const allBooks = await getCollection('books');
+const allVideos = await getCollection('videos');
+
+// Build video lookup map
+const videoMap = new Map(allVideos.map(v => [v.data.id, v.data]));
+
+// Sort: Rory's own book first, then by mention count desc, then alpha
+const books = allBooks.sort((a, b) => {
+  if (a.data.rory_authored !== b.data.rory_authored) return a.data.rory_authored ? -1 : 1;
+  const diff = b.data.mentioned_in.length - a.data.mentioned_in.length;
+  return diff !== 0 ? diff : a.data.title.localeCompare(b.data.title);
+});
+
+const covers = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/book-covers/*.jpg',
+  { eager: true }
+);
+---
+
+<Base title="Books — Rory Sutherland" description="Books written and recommended by Rory Sutherland, with links to the talks where they're mentioned.">
+  <main class="max-w-4xl mx-auto px-6 pb-20 sm:px-4">
+
+    <header class="py-14 border-b border-border mb-12 sm:py-10">
+      <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-3">Reading list</p>
+      <h1 class="font-bold text-4xl tracking-tight text-foreground mb-2 sm:text-3xl">Books</h1>
+      <p class="text-muted-foreground text-[0.95rem]">
+        Books Rory has written, recommended, and mentioned across his talks and interviews.
+      </p>
+    </header>
+
+    <ul class="space-y-10">
+      {books.map(book => {
+        const slug = book.id.replace(/\.md$/, '');
+        const cover = covers[`/src/assets/book-covers/${slug}.jpg`]?.default;
+        const mentionedVideos = book.data.mentioned_in
+          .map(id => videoMap.get(id))
+          .filter(Boolean);
+
+        return (
+          <li class="group flex gap-6 sm:gap-4">
+
+            <!-- Cover -->
+            <div class="shrink-0 w-24 sm:w-20">
+              {cover ? (
+                <a href={book.data.amazon_url} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={cover}
+                    alt={`${book.data.title} cover`}
+                    widths={[96, 192]}
+                    sizes="96px"
+                    class="w-full rounded-sm border border-border shadow-sm hover:opacity-85 transition-opacity"
+                  />
+                </a>
+              ) : (
+                <div class="w-full aspect-[2/3] rounded-sm border border-border bg-secondary flex items-center justify-center">
+                  <span class="font-mono text-[0.6rem] text-muted-foreground text-center px-1">no cover</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 min-w-0">
+              <div class="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 mb-1">
+                <h2 class="font-bold text-lg text-foreground leading-snug">
+                  {book.data.rory_authored ? (
+                    <span class="text-primary">{book.data.title}</span>
+                  ) : book.data.title}
+                </h2>
+                {book.data.rory_authored && (
+                  <span class="font-mono text-[0.62rem] tracking-wide px-1.5 py-0.5 rounded-sm border border-primary/40 text-primary">
+                    by Rory
+                  </span>
+                )}
+              </div>
+
+              <p class="font-mono text-[0.72rem] text-muted-foreground mb-2">
+                {book.data.author} · {book.data.year}
+              </p>
+
+              <p class="text-[0.88rem] text-muted-foreground leading-relaxed mb-3">
+                {book.data.description}
+              </p>
+
+              <!-- Links -->
+              <div class="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[0.7rem] mb-3">
+                {book.data.amazon_url && (
+                  <a
+                    href={book.data.amazon_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary hover:text-foreground transition-colors"
+                  >Amazon ↗</a>
+                )}
+                <a
+                  href={`https://www.google.com/search?q=${encodeURIComponent(book.data.title + ' ' + book.data.author)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-muted-foreground hover:text-foreground transition-colors"
+                >Google ↗</a>
+              </div>
+
+              <!-- Mentioned in -->
+              {mentionedVideos.length > 0 && (
+                <div>
+                  <p class="font-mono text-[0.65rem] tracking-widest uppercase text-muted-foreground/60 mb-1.5">
+                    Mentioned in
+                  </p>
+                  <ul class="flex flex-col gap-1">
+                    {mentionedVideos.map(video => video && (
+                      <li>
+                        <a
+                          href={`/talks/${video.id}`}
+                          class="font-mono text-[0.7rem] text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          → {video.title.replace(/^Rory Sutherland[:\s–-]+/i, '').replace(/\s*[\|\-–]\s*Rory Sutherland.*$/i, '').trim()}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+          </li>
+        );
+      })}
+    </ul>
+
+  </main>
+</Base>

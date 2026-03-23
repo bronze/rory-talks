@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const videos = await getCollection('videos');
@@ -27,6 +28,14 @@ const TOPIC_LABELS: Record<string, string> = {
 
 const allTranscripts = await getCollection('transcripts');
 const transcript = allTranscripts.find(t => t.data.id === data.id);
+
+const allBooks = await getCollection('books');
+const mentionedBooks = allBooks.filter(b => b.data.mentioned_in.includes(data.id));
+
+const bookCovers = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/book-covers/*.jpg',
+  { eager: true }
+);
 
 const { Content } = await render(video);
 
@@ -118,6 +127,44 @@ const takeaways = takeawaysMatch
               <span>{t}</span>
             </li>
           ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- Books mentioned -->
+    {mentionedBooks.length > 0 && (
+      <div class="border-t border-border pt-10">
+        <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-5">Books mentioned</p>
+        <ul class="flex flex-wrap gap-4">
+          {mentionedBooks.map(book => {
+            const slug = book.id.replace(/\.md$/, '');
+            const cover = bookCovers[`/src/assets/book-covers/${slug}.jpg`]?.default;
+            return (
+              <li class="flex gap-3 w-full sm:w-auto sm:max-w-[280px]">
+                {cover && (
+                  <a href={book.data.amazon_url} target="_blank" rel="noopener noreferrer" class="shrink-0">
+                    <Image
+                      src={cover}
+                      alt={`${book.data.title} cover`}
+                      widths={[56, 112]}
+                      sizes="56px"
+                      class="w-14 rounded-sm border border-border shadow-sm hover:opacity-85 transition-opacity"
+                    />
+                  </a>
+                )}
+                <div class="min-w-0">
+                  <p class="font-bold text-[0.85rem] text-foreground leading-snug">{book.data.title}</p>
+                  <p class="font-mono text-[0.68rem] text-muted-foreground mb-1.5">{book.data.author}</p>
+                  <div class="flex gap-2 font-mono text-[0.67rem]">
+                    {book.data.amazon_url && (
+                      <a href={book.data.amazon_url} target="_blank" rel="noopener noreferrer" class="text-primary hover:text-foreground transition-colors">Amazon ↗</a>
+                    )}
+                    <a href="/books" class="text-muted-foreground hover:text-foreground transition-colors">all books</a>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     )}
