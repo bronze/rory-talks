@@ -123,7 +123,10 @@ export default function Search() {
     if (!index || query.trim().length < 2) return [];
     const q = query.toLowerCase();
 
-    const videoResults: VideoResult[] = index.videos.flatMap(v => {
+    type Scored = { result: AnyResult; score: number };
+    const scored: Scored[] = [];
+
+    for (const v of index.videos) {
       const inTitle = v.title.toLowerCase().includes(q);
       const inChannel = v.channel.toLowerCase().includes(q);
       const inTakeaways = v.takeaways.some(t => t.toLowerCase().includes(q));
@@ -131,7 +134,9 @@ export default function Search() {
       const transcriptIdx = transcriptLower.indexOf(q);
       const inTranscript = transcriptIdx !== -1;
 
-      if (!inTitle && !inChannel && !inTakeaways && !inTranscript) return [];
+      if (!inTitle && !inChannel && !inTakeaways && !inTranscript) continue;
+
+      const score = inTitle ? 3 : inChannel || inTakeaways ? 2 : 1;
 
       let snippet: string | undefined;
       if (!inTitle && !inTakeaways && inTranscript) {
@@ -140,16 +145,21 @@ export default function Search() {
         snippet = (start > 0 ? '…' : '') + v.transcript.slice(start, end).trim() + (end < v.transcript.length ? '…' : '');
       }
 
-      return [{ ...v, snippet }];
-    });
+      scored.push({ result: { ...v, snippet }, score });
+    }
 
-    const bookResults: BookEntry[] = index.books.filter(b =>
-      b.title.toLowerCase().includes(q) ||
-      b.author.toLowerCase().includes(q) ||
-      b.description.toLowerCase().includes(q)
-    );
+    for (const b of index.books) {
+      const inTitle = b.title.toLowerCase().includes(q);
+      const inAuthor = b.author.toLowerCase().includes(q);
+      const inDesc = b.description.toLowerCase().includes(q);
 
-    return [...videoResults, ...bookResults];
+      if (!inTitle && !inAuthor && !inDesc) continue;
+
+      const score = inTitle ? 3 : inAuthor ? 2 : 1;
+      scored.push({ result: b, score });
+    }
+
+    return scored.sort((a, b) => b.score - a.score).map(s => s.result);
   })();
 
   listLengthRef.current = query.trim().length < 2 ? quickLinks.length : results.length;
