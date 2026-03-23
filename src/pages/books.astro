@@ -42,7 +42,7 @@ const covers = import.meta.glob<{ default: ImageMetadata }>(
           .filter(Boolean);
 
         return (
-          <li class="group flex gap-6 sm:gap-4">
+          <li id={slug} class="group flex gap-6 sm:gap-4">
 
             <!-- Cover -->
             <div class="shrink-0 w-24 sm:w-20">

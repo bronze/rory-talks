@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface VideoEntry {
+  type: 'video';
   id: string;
   title: string;
   channel: string;
@@ -10,6 +11,21 @@ interface VideoEntry {
   thumbnail: string;
   takeaways: string[];
   transcript: string;
+}
+
+interface BookEntry {
+  type: 'book';
+  slug: string;
+  title: string;
+  author: string;
+  year: number;
+  description: string;
+  rory_authored: boolean;
+}
+
+interface SearchIndex {
+  videos: VideoEntry[];
+  books: BookEntry[];
 }
 
 function formatDate(iso: string) {
@@ -29,10 +45,13 @@ function Highlight({ text, query }: { text: string; query: string }) {
   );
 }
 
+type VideoResult = VideoEntry & { snippet?: string };
+type AnyResult = VideoResult | BookEntry;
+
 export default function Search() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [index, setIndex] = useState<VideoEntry[] | null>(null);
+  const [index, setIndex] = useState<SearchIndex | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const selectedRef = useRef<HTMLAnchorElement>(null);
@@ -94,18 +113,17 @@ export default function Search() {
   }, [open]);
 
   const quickLinks = [
-    { href: '/',        label: 'All talks',       meta: index ? `${index.length} talks` : '' },
+    { href: '/',        label: 'All talks',       meta: index ? `${index.videos.length} talks` : '' },
     { href: '/topics',  label: 'Topics',           meta: 'Browse by theme' },
     { href: '/books',   label: 'Books',            meta: 'Reading list' },
     { href: `https://www.youtube.com/playlist?list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`, label: 'YouTube playlist', meta: '↗', external: true },
   ];
 
-  type Result = VideoEntry & { snippet?: string };
-
-  const results: Result[] = (() => {
+  const results: AnyResult[] = (() => {
     if (!index || query.trim().length < 2) return [];
     const q = query.toLowerCase();
-    return index.flatMap(v => {
+
+    const videoResults: VideoResult[] = index.videos.flatMap(v => {
       const inTitle = v.title.toLowerCase().includes(q);
       const inChannel = v.channel.toLowerCase().includes(q);
       const inTakeaways = v.takeaways.some(t => t.toLowerCase().includes(q));
@@ -124,6 +142,14 @@ export default function Search() {
 
       return [{ ...v, snippet }];
     });
+
+    const bookResults: BookEntry[] = index.books.filter(b =>
+      b.title.toLowerCase().includes(q) ||
+      b.author.toLowerCase().includes(q) ||
+      b.description.toLowerCase().includes(q)
+    );
+
+    return [...videoResults, ...bookResults];
   })();
 
   listLengthRef.current = query.trim().length < 2 ? quickLinks.length : results.length;
@@ -166,7 +192,7 @@ export default function Search() {
                 ref={inputRef}
                 value={query}
                 onChange={e => setQuery(e.target.value)}
-                placeholder="Search talks, takeaways..."
+                placeholder="Search talks, books, takeaways..."
                 className="w-full py-4 bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground outline-none"
               />
               <button
@@ -182,46 +208,77 @@ export default function Search() {
               <div className="max-h-[60vh] overflow-y-auto">
                 {results.length === 0 ? (
                   <p className="px-4 py-8 text-center font-mono text-[0.75rem] text-muted-foreground">
-                    No talks found
+                    No results found
                   </p>
                 ) : (
                   <ul>
-                    {results.map((v, i) => {
+                    {results.map((result, i) => {
                       const active = selectedIndex === i;
+                      const cls = `flex items-start gap-3 px-4 py-3 transition-colors border-b border-border last:border-0 ${active ? 'bg-secondary' : 'hover:bg-secondary/60'}`;
+
+                      if (result.type === 'book') {
+                        return (
+                          <li key={`book-${result.slug}`}>
+                            <a
+                              ref={active ? selectedRef : null}
+                              href={`/books#${result.slug}`}
+                              onClick={() => setOpen(false)}
+                              className={cls}
+                            >
+                              <div className="w-16 h-9 shrink-0 mt-0.5 flex items-center justify-center rounded-sm border border-border bg-muted">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground">
+                                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                </svg>
+                              </div>
+                              <div className="min-w-0">
+                                <p className="text-[0.88rem] text-foreground leading-snug mb-1 line-clamp-1">
+                                  <Highlight text={result.title} query={query} />
+                                </p>
+                                <p className="font-mono text-[0.68rem] text-muted-foreground">
+                                  <Highlight text={result.author} query={query} /> · {result.year}{result.rory_authored ? ' · by Rory' : ''}
+                                </p>
+                              </div>
+                            </a>
+                          </li>
+                        );
+                      }
+
+                      // video result
+                      const v = result as VideoResult;
                       return (
-                      <li key={v.id}>
-                        <a
-                          ref={active ? selectedRef : null}
-                          href={`/talks/${v.id}`}
-                          onClick={() => setOpen(false)}
-                          className={`flex items-start gap-3 px-4 py-3 transition-colors border-b border-border last:border-0 ${active ? 'bg-secondary' : 'hover:bg-secondary/60'}`}
-                        >
-                          <img
-                            src={v.thumbnail}
-                            alt=""
-                            className="w-16 h-9 object-cover rounded-sm shrink-0 mt-0.5"
-                            onError={e => {
-                              const img = e.currentTarget;
-                              if (!img.src.includes('hqdefault')) {
-                                img.src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
-                              }
-                            }}
-                          />
-                          <div className="min-w-0">
-                            <p className="text-[0.88rem] text-foreground leading-snug mb-1 line-clamp-2">
-                              {v.title}
-                            </p>
-                            <p className="font-mono text-[0.68rem] text-muted-foreground">
-                              {v.channel} · {formatDate(v.upload_date)} · {v.duration_string}
-                            </p>
-                            {v.snippet && (
-                              <p className="font-mono text-[0.68rem] text-muted-foreground mt-1 line-clamp-2 italic">
-                                <Highlight text={v.snippet} query={query} />
+                        <li key={v.id}>
+                          <a
+                            ref={active ? selectedRef : null}
+                            href={`/talks/${v.id}`}
+                            onClick={() => setOpen(false)}
+                            className={cls}
+                          >
+                            <img
+                              src={v.thumbnail}
+                              alt=""
+                              className="w-16 h-9 object-cover rounded-sm shrink-0 mt-0.5"
+                              onError={e => {
+                                const img = e.currentTarget;
+                                if (!img.src.includes('hqdefault')) {
+                                  img.src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+                                }
+                              }}
+                            />
+                            <div className="min-w-0">
+                              <p className="text-[0.88rem] text-foreground leading-snug mb-1 line-clamp-2">
+                                {v.title}
                               </p>
-                            )}
-                          </div>
-                        </a>
-                      </li>
+                              <p className="font-mono text-[0.68rem] text-muted-foreground">
+                                {v.channel} · {formatDate(v.upload_date)} · {v.duration_string}
+                              </p>
+                              {v.snippet && (
+                                <p className="font-mono text-[0.68rem] text-muted-foreground mt-1 line-clamp-2 italic">
+                                  <Highlight text={v.snippet} query={query} />
+                                </p>
+                              )}
+                            </div>
+                          </a>
+                        </li>
                       );
                     })}
                   </ul>
