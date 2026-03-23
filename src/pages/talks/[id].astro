@@ -135,32 +135,27 @@ const takeaways = takeawaysMatch
     {mentionedBooks.length > 0 && (
       <div class="border-t border-border pt-10 mb-10">
         <p class="font-mono text-[0.7rem] tracking-[0.15em] uppercase text-primary mb-5">Books mentioned</p>
-        <ul class="grid grid-cols-2 gap-3 sm:grid-cols-1">
+        <ul class="grid grid-cols-3 gap-3 lg:grid-cols-2 sm:grid-cols-1">
           {mentionedBooks.map(book => {
             const slug = book.id.replace(/\.md$/, '');
             const cover = bookCovers[`/src/assets/book-covers/${slug}.jpg`]?.default;
             return (
-              <li class="rounded-sm border border-border bg-secondary/30 p-4 flex gap-4 hover:bg-secondary/60 transition-colors">
-                {cover && (
-                  <a href={`/books#${slug}`} class="shrink-0">
+              <li>
+                <a href={`/books#${slug}`} class="rounded-sm border border-border bg-secondary/30 p-4 flex gap-4 hover:bg-secondary/60 transition-colors h-full">
+                  {cover && (
                     <Image
                       src={cover}
                       alt={`${book.data.title} cover`}
                       widths={[72, 144]}
                       sizes="72px"
-                      class="w-[4.5rem] rounded-sm border border-border shadow-sm hover:opacity-85 transition-opacity"
+                      class="w-[4.5rem] rounded-sm border border-border shadow-sm shrink-0 self-start"
                     />
-                  </a>
-                )}
-                <div class="min-w-0 flex flex-col justify-between">
-                  <div>
-                    <a href={`/books#${slug}`} class="font-bold text-[0.85rem] text-foreground leading-snug hover:text-primary transition-colors line-clamp-2">{book.data.title}</a>
+                  )}
+                  <div class="min-w-0">
+                    <p class="font-bold text-[0.85rem] text-foreground leading-snug line-clamp-2">{book.data.title}</p>
                     <p class="font-mono text-[0.68rem] text-muted-foreground mt-0.5">{book.data.author}</p>
                   </div>
-                  {book.data.amazon_url && (
-                    <a href={book.data.amazon_url} target="_blank" rel="noopener noreferrer" class="font-mono text-[0.67rem] text-primary hover:text-foreground transition-colors mt-2 self-start">Amazon ↗</a>
-                  )}
-                </div>
+                </a>
               </li>
             );
           })}
