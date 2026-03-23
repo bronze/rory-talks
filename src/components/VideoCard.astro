@@ -53,7 +53,7 @@ const localThumb = localThumbnails[`/src/assets/thumbnails/${id}.jpg`]?.default;
 <article class="group relative rounded-sm border border-border bg-card transition-colors duration-200 hover:border-muted-foreground/40 hover:bg-secondary overflow-hidden cursor-pointer" data-topics={topics.join(',')}>
 
   <!-- Stretched link covering the whole card -->
-  <a href={`/talks/${id}`} class="absolute inset-0 z-0" aria-label={title}></a>
+  <a href={`/talks/${id}`} class="absolute inset-0 z-10" aria-label={title}></a>
 
   <!-- Thumbnail -->
   <div class="relative aspect-video overflow-hidden bg-background">
@@ -89,7 +89,7 @@ const localThumb = localThumbnails[`/src/assets/thumbnails/${id}.jpg`]?.default;
         href={channel_url}
         target="_blank"
         rel="noopener noreferrer"
-        class="relative z-10 text-primary hover:text-foreground transition-colors"
+        class="relative z-20 text-primary hover:text-foreground transition-colors"
       >{channel}</a>
       <span class="text-border">·</span>
       <span>{formattedDate}</span>
@@ -101,7 +101,7 @@ const localThumb = localThumbnails[`/src/assets/thumbnails/${id}.jpg`]?.default;
       )}
     </div>
     {topics.length > 0 && (
-      <div class="relative z-10 flex flex-wrap gap-1 mt-2.5">
+      <div class="relative z-20 flex flex-wrap gap-1 mt-2.5">
         {topics.map(t => (
           <a
             href={`/topics/${t}`}
