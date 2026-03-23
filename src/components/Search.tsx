@@ -37,6 +37,7 @@ export default function Search() {
   const inputRef = useRef<HTMLInputElement>(null);
   const selectedRef = useRef<HTMLAnchorElement>(null);
   const listLengthRef = useRef(0);
+  const quickLinksRef = useRef<{ href: string; external?: boolean }[]>([]);
 
   // Load index on first open
   useEffect(() => {
@@ -78,7 +79,15 @@ export default function Search() {
       if (e.key === 'ArrowUp')   { e.preventDefault(); setSelectedIndex(i => Math.max(0, i - 1)); return; }
       if (e.key === 'Enter') { e.preventDefault(); selectedRef.current?.click(); return; }
       const num = parseInt(e.key);
-      if (!isNaN(num) && num >= 1) { e.preventDefault(); setSelectedIndex(num - 1); }
+      if (!isNaN(num) && num >= 1) {
+        e.preventDefault();
+        const link = quickLinksRef.current[num - 1];
+        if (link) {
+          setOpen(false);
+          if (link.external) { window.open(link.href, '_blank', 'noopener,noreferrer'); }
+          else { window.location.href = link.href; }
+        }
+      }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
@@ -118,6 +127,7 @@ export default function Search() {
   })();
 
   listLengthRef.current = query.trim().length < 2 ? quickLinks.length : results.length;
+  quickLinksRef.current = quickLinks;
 
   return (
     <>
