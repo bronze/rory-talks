@@ -4,7 +4,6 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
-- [x] **Cmd+K links** — search modal should surface direct links to Topics, Books, and other pages; full keyboard navigation with arrow keys, number keys 1–4, and Enter
 - [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and a dedicated page
 
 ## Done
@@ -27,3 +26,5 @@ A running list of things to build, improve, or investigate.
 - [x] YouTube playlist link in nav; all YouTube links include `&list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`
 - [x] Added 5 talks: `qMl4jWe8EiI`, `ycEQYNrVCek`, `Bc9jFbxrkMk`, `TcRqBSSBYpc`, `wgpkVsnz7wI` — now 28 talks total
 - [x] Books — `/books` page with 17 books (Rory's own + recommended); cover art, descriptions, Amazon links, cross-referenced to talks; "Books mentioned" section on each talk page
+- [x] Cmd+K links — quick nav to Topics, Books, All talks, YouTube playlist; full keyboard nav (arrows, number keys 1–4, Enter); number keys navigate immediately
+- [x] Search books — books included in ⌘K search results (title, author, description); results ranked by relevance (title match > author/takeaways > transcript/description)
