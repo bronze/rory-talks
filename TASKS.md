@@ -4,7 +4,7 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
-- [ ] **Cmd+K links** — search modal should surface direct links to Topics, Books, and other pages
+- [x] **Cmd+K links** — search modal should surface direct links to Topics, Books, and other pages; full keyboard navigation with arrow keys, number keys 1–4, and Enter
 - [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and a dedicated page
 
 ## Done

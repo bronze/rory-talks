@@ -33,7 +33,10 @@ export default function Search() {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [index, setIndex] = useState<VideoEntry[] | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const selectedRef = useRef<HTMLAnchorElement>(null);
+  const listLengthRef = useRef(0);
 
   // Load index on first open
   useEffect(() => {
@@ -50,22 +53,43 @@ export default function Search() {
       setTimeout(() => inputRef.current?.focus(), 50);
     } else {
       setQuery('');
+      setSelectedIndex(0);
     }
   }, [open]);
 
-  // Open on ⌘K / Ctrl+K, close on Escape
+  // Reset selection when query changes
+  useEffect(() => { setSelectedIndex(0); }, [query]);
+
+  // Scroll selected item into view
+  useEffect(() => {
+    selectedRef.current?.scrollIntoView({ block: 'nearest' });
+  }, [selectedIndex]);
+
+  // Open on ⌘K / Ctrl+K, close on Escape, arrow + number navigation
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setOpen(false);
-      } else if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen(o => !o);
+      if (!open) {
+        if (e.key === 'k' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); setOpen(true); }
+        return;
       }
+      if (e.key === 'Escape') { setOpen(false); return; }
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); setOpen(false); return; }
+      if (e.key === 'ArrowDown') { e.preventDefault(); setSelectedIndex(i => Math.min(listLengthRef.current - 1, i + 1)); return; }
+      if (e.key === 'ArrowUp')   { e.preventDefault(); setSelectedIndex(i => Math.max(0, i - 1)); return; }
+      if (e.key === 'Enter') { e.preventDefault(); selectedRef.current?.click(); return; }
+      const num = parseInt(e.key);
+      if (!isNaN(num) && num >= 1) { e.preventDefault(); setSelectedIndex(num - 1); }
     };
     document.addEventListener('keydown', handler);
     return () => document.removeEventListener('keydown', handler);
-  }, []);
+  }, [open]);
+
+  const quickLinks = [
+    { href: '/',        label: 'All talks',       meta: index ? `${index.length} talks` : '' },
+    { href: '/topics',  label: 'Topics',           meta: 'Browse by theme' },
+    { href: '/books',   label: 'Books',            meta: 'Reading list' },
+    { href: `https://www.youtube.com/playlist?list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`, label: 'YouTube playlist', meta: '↗', external: true },
+  ];
 
   type Result = VideoEntry & { snippet?: string };
 
@@ -92,6 +116,8 @@ export default function Search() {
       return [{ ...v, snippet }];
     });
   })();
+
+  listLengthRef.current = query.trim().length < 2 ? quickLinks.length : results.length;
 
   return (
     <>
@@ -150,12 +176,15 @@ export default function Search() {
                   </p>
                 ) : (
                   <ul>
-                    {results.map(v => (
+                    {results.map((v, i) => {
+                      const active = selectedIndex === i;
+                      return (
                       <li key={v.id}>
                         <a
+                          ref={active ? selectedRef : null}
                           href={`/talks/${v.id}`}
                           onClick={() => setOpen(false)}
-                          className="flex items-start gap-3 px-4 py-3 hover:bg-secondary transition-colors border-b border-border last:border-0"
+                          className={`flex items-start gap-3 px-4 py-3 transition-colors border-b border-border last:border-0 ${active ? 'bg-secondary' : 'hover:bg-secondary/60'}`}
                         >
                           <img
                             src={v.thumbnail}
@@ -183,7 +212,8 @@ export default function Search() {
                           </div>
                         </a>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                 )}
               </div>
@@ -196,25 +226,27 @@ export default function Search() {
                   Quick links
                 </p>
                 <ul className="pb-2">
-                  {[
-                    { href: '/',        label: 'All talks',      meta: index ? `${index.length} talks` : '' },
-                    { href: '/topics',  label: 'Topics',         meta: 'Browse by theme' },
-                    { href: '/books',   label: 'Books',          meta: 'Reading list' },
-                    { href: `https://www.youtube.com/playlist?list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`, label: 'YouTube playlist', meta: '↗', external: true },
-                  ].map(({ href, label, meta, external }) => (
-                    <li key={href}>
-                      <a
-                        href={href}
-                        onClick={() => setOpen(false)}
-                        target={external ? '_blank' : undefined}
-                        rel={external ? 'noopener noreferrer' : undefined}
-                        className="flex items-center justify-between px-4 py-2.5 hover:bg-secondary transition-colors"
-                      >
-                        <span className="font-mono text-[0.8rem] text-foreground">{label}</span>
-                        <span className="font-mono text-[0.68rem] text-muted-foreground">{meta}</span>
-                      </a>
-                    </li>
-                  ))}
+                  {quickLinks.map(({ href, label, meta, external }, i) => {
+                    const active = selectedIndex === i;
+                    return (
+                      <li key={href}>
+                        <a
+                          ref={active ? selectedRef : null}
+                          href={href}
+                          onClick={() => setOpen(false)}
+                          target={external ? '_blank' : undefined}
+                          rel={external ? 'noopener noreferrer' : undefined}
+                          className={`flex items-center justify-between px-4 py-2.5 transition-colors ${active ? 'bg-secondary' : 'hover:bg-secondary/60'}`}
+                        >
+                          <span className="font-mono text-[0.8rem] text-foreground flex items-center gap-2">
+                            <span className={`text-[0.6rem] w-4 text-center rounded border ${active ? 'border-primary text-primary' : 'border-border text-muted-foreground/50'}`}>{i + 1}</span>
+                            {label}
+                          </span>
+                          <span className="font-mono text-[0.68rem] text-muted-foreground">{meta}</span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
