@@ -4,17 +4,8 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
-- [ ] **Cmd+k links** — command k should have links / easy access to individual pages
+- [ ] **Cmd+K links** — search modal should surface direct links to Topics, Books, and other pages
 - [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and a dedicated page
-
-### Books (`/books` page)
-
-1. - [ ] **Scan transcripts for book mentions** — grep all 28 transcripts for titles, authors, "his book", "read a book called", etc.; produce a raw list
-2. - [ ] **Curate book list** — deduplicate, add missing entries (Rory's own books + well-known recommendations), confirm author/year
-3. - [ ] **Build `src/content/books/` collection** — one `.md` per book with frontmatter: title, author, year, isbn, amazon_url, description, mentioned_in (list of video IDs)
-4. - [ ] **Fetch cover images** — use Open Library or Amazon for cover art; store locally
-5. - [ ] **Build `/books` page** — grid of book cards (cover, title, author, links to Amazon/Google Books); each card lists the talks it was mentioned in, linked back to `/talks/[id]`
-6. - [ ] **Link books from talk pages** — "Books mentioned" section on each `/talks/[id]` page
 
 ## Done
 
@@ -35,3 +26,4 @@ A running list of things to build, improve, or investigate.
 - [x] Tags / topics — 7-concept taxonomy (reframing, alchemy, signalling, complexity, brand, risk, finance); filter bar on homepage with tooltips; topic pills on cards and talk pages; `/topics` index and `/topics/[slug]` static pages
 - [x] YouTube playlist link in nav; all YouTube links include `&list=PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc`
 - [x] Added 5 talks: `qMl4jWe8EiI`, `ycEQYNrVCek`, `Bc9jFbxrkMk`, `TcRqBSSBYpc`, `wgpkVsnz7wI` — now 28 talks total
+- [x] Books — `/books` page with 17 books (Rory's own + recommended); cover art, descriptions, Amazon links, cross-referenced to talks; "Books mentioned" section on each talk page
