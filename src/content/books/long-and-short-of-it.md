@@ -2,7 +2,7 @@
 title: "The Long and the Short of It"
 author: "Les Binet & Peter Field"
 year: 2013
-amazon_url: "https://www.amazon.com/dp/1913320995"
+amazon_url: "https://www.amazon.com/dp/B01KAFIQ7I"
 rory_authored: false
 mentioned_in:
   - HbNIeLngS6Q

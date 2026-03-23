@@ -2,7 +2,7 @@
 title: "The Wealth of Nations"
 author: "Adam Smith"
 year: 1776
-amazon_url: "https://www.amazon.com/dp/0143107615"
+amazon_url: "https://www.amazon.com/dp/B0B71YB9M8"
 rory_authored: false
 mentioned_in:
   - UbJkENiAhyc

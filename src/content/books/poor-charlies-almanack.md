@@ -2,7 +2,7 @@
 title: "Poor Charlie's Almanack"
 author: "Charlie Munger"
 year: 2005
-amazon_url: "https://www.amazon.com/dp/B0CDKCLKLY"
+amazon_url: "https://www.amazon.com/dp/B0C5TCGPPS"
 rory_authored: false
 mentioned_in:
   - PfQRHM6rL-M

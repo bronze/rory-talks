@@ -2,7 +2,7 @@
 title: "Obliquity"
 author: "John Kay"
 year: 2010
-amazon_url: "https://www.amazon.com/dp/1594202974"
+amazon_url: "https://www.amazon.com/dp/B004H4XD40"
 rory_authored: false
 mentioned_in:
   - J6XgR6WsqV4

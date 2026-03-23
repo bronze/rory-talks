@@ -2,7 +2,7 @@
 title: "Alchemy"
 author: "Rory Sutherland"
 year: 2019
-amazon_url: "https://www.amazon.com/dp/0753556677"
+amazon_url: "https://www.amazon.com/dp/B071DCWRG3"
 rory_authored: true
 mentioned_in:
   - 5TvbJzJ4Vs0

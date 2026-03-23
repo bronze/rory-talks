@@ -2,7 +2,7 @@
 title: "Thinking, Fast and Slow"
 author: "Daniel Kahneman"
 year: 2011
-amazon_url: "https://www.amazon.com/dp/0374533555"
+amazon_url: "https://www.amazon.com/dp/B00555X8OA"
 rory_authored: false
 mentioned_in:
   - J6XgR6WsqV4

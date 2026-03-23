@@ -2,7 +2,7 @@
 title: "Confessions of an Advertising Man"
 author: "David Ogilvy"
 year: 1963
-amazon_url: "https://www.amazon.com/dp/1853756849"
+amazon_url: "https://www.amazon.com/dp/190491537X"
 rory_authored: false
 mentioned_in:
   - SG-iLV_NJL8

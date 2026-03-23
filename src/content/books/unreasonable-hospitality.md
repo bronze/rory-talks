@@ -2,7 +2,7 @@
 title: "Unreasonable Hospitality"
 author: "Will Guidara"
 year: 2022
-amazon_url: "https://www.amazon.com/dp/0593418573"
+amazon_url: "https://www.amazon.com/dp/B0B13W5GPT"
 rory_authored: false
 mentioned_in:
   - HbNIeLngS6Q

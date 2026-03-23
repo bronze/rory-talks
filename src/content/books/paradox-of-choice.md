@@ -2,7 +2,7 @@
 title: "The Paradox of Choice"
 author: "Barry Schwartz"
 year: 2004
-amazon_url: "https://www.amazon.com/dp/0060005696"
+amazon_url: "https://www.amazon.com/dp/B000TDGGVU"
 rory_authored: false
 mentioned_in:
   - wgpkVsnz7wI
