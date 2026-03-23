@@ -4,6 +4,7 @@ A running list of things to build, improve, or investigate.
 
 ## Backlog
 
+- [ ] **Cmd+k links** — command k should have links / easy access to individual pages
 - [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and a dedicated page
 
 ### Books (`/books` page)

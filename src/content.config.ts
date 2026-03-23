@@ -29,4 +29,17 @@ const transcripts = defineCollection({
   }),
 });
 
-export const collections = { videos, transcripts };
+const books = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/books' }),
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    year: z.number(),
+    amazon_url: z.string().url().optional(),
+    description: z.string(),
+    mentioned_in: z.array(z.string()).default([]),
+    rory_authored: z.boolean().default(false),
+  }),
+});
+
+export const collections = { videos, transcripts, books };
