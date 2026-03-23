@@ -11,8 +11,8 @@ view_count: 45538
 thumbnail: "https://i.ytimg.com/vi/wgpkVsnz7wI/maxresdefault.jpg"
 description: "Rory Sutherland joins Chris Williamson on the Modern Wisdom Podcast to explore why human behaviour is far less rational than we claim, and why that's not necessarily a bad thing."
 topics:
-  - behavioural-economics
-  - psychology
+  - alchemy
+  - signalling
 ---
 
 ## Key Takeaways

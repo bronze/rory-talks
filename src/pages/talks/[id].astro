@@ -13,13 +13,15 @@ export async function getStaticPaths() {
 const { video } = Astro.props;
 const { data } = video;
 
+const PLAYLIST_ID = 'PLGxDladnEAZ1wNjUglLAnDR4nQDAhntKc';
+
 const TOPIC_LABELS: Record<string, string> = {
-  'marketing': 'Marketing',
-  'behavioural-economics': 'Behavioural Economics',
-  'psychology': 'Psychology',
-  'business-strategy': 'Business Strategy',
+  'reframing': 'Reframing',
+  'alchemy': 'Alchemy',
+  'signalling': 'Signalling',
+  'complexity': 'Complexity',
   'brand': 'Brand',
-  'creativity': 'Creativity',
+  'risk': 'Risk',
   'finance': 'Finance',
 };
 
@@ -53,7 +55,7 @@ const takeaways = takeawaysMatch
     <!-- Video embed -->
     <div class="aspect-video w-full mb-8 rounded-sm overflow-hidden border border-border bg-background">
       <iframe
-        src={`https://www.youtube.com/embed/${data.id}${data.start_time ? `?start=${data.start_time}` : ''}`}
+        src={`https://www.youtube.com/embed/${data.id}?${data.start_time ? `start=${data.start_time}&` : ''}list=${PLAYLIST_ID}`}
         title={data.title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -97,7 +99,7 @@ const takeaways = takeawaysMatch
         )}
         <span class="text-border">·</span>
         <a
-          href={data.start_time ? `${data.url}&t=${data.start_time}s` : data.url}
+          href={`${data.url}&list=${PLAYLIST_ID}${data.start_time ? `&t=${data.start_time}s` : ''}`}
           target="_blank"
           rel="noopener noreferrer"
           class="hover:text-primary transition-colors"

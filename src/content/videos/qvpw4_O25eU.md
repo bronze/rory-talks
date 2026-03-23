@@ -11,8 +11,8 @@ view_count: 519165
 thumbnail: "https://i.ytimg.com/vi/qvpw4_O25eU/maxresdefault.jpg"
 description: "Rory Sutherland is one of the world’s leading consumer behaviour experts, the Vice Chairman of Ogilvy Advertising and an author.  Every moment of the day, you're being marketed to. From the instant you check your phone in the morning to the subtle strategies behind political campaigns. So how can yo"
 topics:
-  - marketing
-  - psychology
+  - signalling
+  - reframing
 ---
 
 ## Key Takeaways

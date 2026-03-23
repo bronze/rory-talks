@@ -11,8 +11,8 @@ view_count: 117119
 thumbnail: "https://i.ytimg.com/vi/J6XgR6WsqV4/maxresdefault.jpg"
 description: "Leaving a safe career can feel like a massive risk - but have you ever considered the risks of NOT switching? If you’re on the edge of a career change, or in the early stages, these psychology hacks will make life a lot easier for you.  In this episode of The Switch from St. James’s Place Financial "
 topics:
-  - psychology
-  - behavioural-economics
+  - risk
+  - reframing
 ---
 
 ## Key Takeaways

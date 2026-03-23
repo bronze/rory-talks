@@ -11,8 +11,8 @@ view_count: 205990
 thumbnail: "https://i.ytimg.com/vi/wqb0f4vmkis/maxresdefault.jpg"
 description: "Today I'm having a GAS with Rory Sutherland... Rory is the vice-chairman of Ogilvy UK and the author of 'Alchemy: The Surprising Power of Ideas That Don't Make Sense'.  We discuss topics including; Creative processes, checklists and scarcity, the economic placebo effect, film, the power of colour, h"
 topics:
-  - psychology
-  - marketing
+  - signalling
+  - alchemy
 ---
 
 ## Key Takeaways

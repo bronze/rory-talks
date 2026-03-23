@@ -11,9 +11,8 @@ view_count: 82739
 thumbnail: "https://i.ytimg.com/vi/B8F2f7Yu42E/maxresdefault.jpg"
 description: "Buy our book! https://amzn.eu/d/74yyQRZ  Generate more leads: www.wehaveameeting.com  Rory Sutherland is back on the We Have a Meeting Podcast and this is the MOST insightful Rory Sutherland interview ever recorded.   In this episode, Rory, Vice Chairman of Ogilvy and one of the most brilliant minds"
 topics:
-  - marketing
-  - behavioural-economics
   - brand
+  - signalling
 ---
 
 ## Key Takeaways

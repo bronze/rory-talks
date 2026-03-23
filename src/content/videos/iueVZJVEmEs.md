@@ -11,8 +11,7 @@ view_count: 1719125
 thumbnail: "https://i.ytimg.com/vi/iueVZJVEmEs/maxresdefault.jpg"
 description: "http://www.ted.com The circumstances of our lives may matter less than how we see them, says Rory Sutherland. At TEDxAthens, he makes a compelling case for how reframing is the key to happiness.  TEDTalks is a daily video podcast of the best talks and performances from the TED Conference, where the "
 topics:
-  - behavioural-economics
-  - psychology
+  - reframing
 ---
 
 ## Key Takeaways

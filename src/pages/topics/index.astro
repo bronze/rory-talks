@@ -4,13 +4,23 @@ import Base from '../../layouts/Base.astro';
 import { formatRuntime } from '../../lib/format';
 
 const TOPIC_LABELS: Record<string, string> = {
-  'marketing': 'Marketing',
-  'behavioural-economics': 'Behavioural Economics',
-  'psychology': 'Psychology',
-  'business-strategy': 'Business Strategy',
+  'reframing': 'Reframing',
+  'alchemy': 'Alchemy',
+  'signalling': 'Signalling',
+  'complexity': 'Complexity',
   'brand': 'Brand',
-  'creativity': 'Creativity',
+  'risk': 'Risk',
   'finance': 'Finance',
+};
+
+const TOPIC_DESCRIPTIONS: Record<string, string> = {
+  'reframing': 'Changing context or perception to reveal hidden value',
+  'alchemy': 'Irrational solutions that outperform rational ones',
+  'signalling': 'Trust, costly signals, and why form matters as much as function',
+  'complexity': 'Emergence, bottom-up thinking, and why mess is a feature',
+  'brand': 'Advertising craft, brand equity, and what brands actually do',
+  'risk': 'Variance vs expected value, uncertainty, and why playing safe is dangerous',
+  'finance': 'When economic logic fails — pensions, investment, cost reduction',
 };
 
 const allVideos = await getCollection('videos');
@@ -45,12 +55,19 @@ const topics = [...topicMap.entries()]
         <li>
           <a
             href={`/topics/${slug}`}
-            class="flex items-center justify-between py-5 group hover:text-primary transition-colors"
+            class="flex items-center justify-between py-5 group hover:text-primary transition-colors gap-6"
           >
-            <span class="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
-              {label}
-            </span>
-            <span class="font-mono text-[0.72rem] text-muted-foreground">
+            <div>
+              <span class="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+                {label}
+              </span>
+              {TOPIC_DESCRIPTIONS[slug] && (
+                <p class="font-mono text-[0.7rem] text-muted-foreground mt-0.5">
+                  {TOPIC_DESCRIPTIONS[slug]}
+                </p>
+              )}
+            </div>
+            <span class="font-mono text-[0.72rem] text-muted-foreground shrink-0">
               {count} talk{count !== 1 ? 's' : ''} · {hours}h {mins}m
             </span>
           </a>

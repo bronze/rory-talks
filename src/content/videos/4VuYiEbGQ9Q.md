@@ -11,8 +11,8 @@ view_count: 1311418
 thumbnail: "https://i.ytimg.com/vi/4VuYiEbGQ9Q/maxresdefault.jpg"
 description: "Rory is one of the most powerful men in marketing. Educated at Cambridge, he went on to become the Executive Creative Director and Vice-Chairman of OgilvyOne, and the Vice-Chairman of the overall Ogilvy Group. His revolutionary views of marketing and behavioural economics have led him to speak at TE"
 topics:
-  - behavioural-economics
-  - psychology
+  - alchemy
+  - complexity
 ---
 
 ## Key Takeaways

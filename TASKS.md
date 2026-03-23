@@ -4,12 +4,12 @@ A running list of things to build, improve, or investigate.
 
 ## Up Next
 
-- [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and/or a dedicated page
+- [ ] **Tags / topics** — group talks by theme (behavioural economics, marketing, psychology, etc.)
 
 ## Backlog
 
-- [ ] **Tags / topics** — group talks by theme (behavioural economics, marketing, psychology, etc.)
 - [ ] **Book Section** — books mentioned by him, with thumbnails and links to amazon
+- [ ] **Recurring stories** — cross-reference which talks mention the same stories/examples (Eurostar, marmalade sandwich, etc.) and surface them on talk pages and a dedicated page
 
 ## Done
 

@@ -11,8 +11,8 @@ view_count: 4213
 thumbnail: "https://i.ytimg.com/vi/45JAIkQI8AY/maxresdefault.jpg"
 description: "#podcast #jakehumphrey #founderstories #businesspodcast Subscribe now and join the RWIH community! https://www.youtube.com/channel/UC2vm00HRiRiNnJao43Ks-Zw?sub_cofirmation=1   What if the biggest breakthroughs in business don’t come from logic, but from noticing what others overlook?  In this episod"
 topics:
-  - marketing
-  - behavioural-economics
+  - reframing
+  - alchemy
 ---
 
 ## Key Takeaways

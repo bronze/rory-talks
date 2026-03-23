@@ -11,7 +11,8 @@ view_count: 97878
 thumbnail: "https://i.ytimg.com/vi/QBznUHAopxU/maxresdefault.jpg"
 description: "Ogilvy Vice Chairman Rory Sutherland reveals the formula for persuasion, why people make decisions, and how to use psychology to your advantage.   Rory is the world’s leading advertising strategist. He spent almost four decades at the world's leading advertising agency studying why people behave the"
 topics:
-  - marketing
+  - signalling
+  - brand
 ---
 
 ## Key Takeaways

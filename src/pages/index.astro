@@ -9,13 +9,23 @@ const allTranscripts = await getCollection('transcripts');
 const transcriptIds = new Set(allTranscripts.map(t => t.data.id));
 
 const TOPIC_LABELS: Record<string, string> = {
-  'marketing': 'Marketing',
-  'behavioural-economics': 'Behavioural Economics',
-  'psychology': 'Psychology',
-  'business-strategy': 'Business Strategy',
+  'reframing': 'Reframing',
+  'alchemy': 'Alchemy',
+  'signalling': 'Signalling',
+  'complexity': 'Complexity',
   'brand': 'Brand',
-  'creativity': 'Creativity',
+  'risk': 'Risk',
   'finance': 'Finance',
+};
+
+const TOPIC_DESCRIPTIONS: Record<string, string> = {
+  'reframing': 'Changing context or perception to reveal hidden value',
+  'alchemy': 'Irrational solutions that outperform rational ones',
+  'signalling': 'Trust, costly signals, and why form matters as much as function',
+  'complexity': 'Emergence, bottom-up thinking, and why mess is a feature',
+  'brand': 'Advertising craft, brand equity, and what brands actually do',
+  'risk': 'Variance vs expected value, uncertainty, and why playing safe is dangerous',
+  'finance': 'When economic logic fails — pensions, investment, cost reduction',
 };
 
 // Topics ordered by talk count descending
@@ -70,14 +80,19 @@ const latestYear = Math.max(...years);
     <!-- Topic filter -->
     <div class="flex flex-wrap gap-2 mb-10" id="topic-filters">
       <button
-        class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-primary text-primary transition-colors"
+        class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-primary text-primary transition-colors cursor-pointer"
         data-topic="all"
       >All ({videos.length})</button>
       {topics.map(slug => (
-        <button
-          class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors"
-          data-topic={slug}
-        >{TOPIC_LABELS[slug]} ({topicCounts.get(slug)})</button>
+        <div class="relative group/tip">
+          <button
+            class="topic-btn font-mono text-[0.72rem] px-3 py-1.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors cursor-pointer"
+            data-topic={slug}
+          >{TOPIC_LABELS[slug]} ({topicCounts.get(slug)})</button>
+          <div class="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 rounded-sm bg-popover border border-border px-2.5 py-1.5 font-mono text-[0.67rem] text-muted-foreground leading-snug opacity-0 group-hover/tip:opacity-100 transition-opacity duration-150 z-10 text-center shadow-md">
+            {TOPIC_DESCRIPTIONS[slug]}
+          </div>
+        </div>
       ))}
     </div>
 

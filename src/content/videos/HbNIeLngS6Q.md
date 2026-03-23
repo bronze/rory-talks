@@ -11,9 +11,8 @@ view_count: 131941
 thumbnail: "https://i.ytimg.com/vi/HbNIeLngS6Q/maxresdefault.jpg"
 description: "Rory Sutherland: Why Cost Reduction Isn't A Strategy https://www.businessleader.co.uk/  Is cost cutting really a strategy or is it quietly holding businesses back? In this episode of the Business Leader podcast, Sir Richard Harpin sits down with Rory Sutherland. Rory challenges some of the most deep"
 topics:
-  - business-strategy
-  - marketing
   - finance
+  - alchemy
 ---
 
 ## Key Takeaways

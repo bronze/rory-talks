@@ -11,8 +11,8 @@ view_count: 5750
 thumbnail: "https://i.ytimg.com/vi/sOcIh6sGNhw/maxresdefault.jpg"
 description: "Why Copying Your Competitors Is Killing Your Business | Rory Sutherland, Ogilvy  In one of the sharpest keynotes of the day, Ogilvy's Vice Chairman made the case that when every company optimises for the same metrics, they all become the same - and everyone loses.  His fix? Reverse benchmarking. Don"
 topics:
-  - marketing
-  - business-strategy
+  - signalling
+  - brand
 ---
 
 ## Key Takeaways

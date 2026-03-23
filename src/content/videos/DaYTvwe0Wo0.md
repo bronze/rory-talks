@@ -11,9 +11,8 @@ view_count: 594170
 thumbnail: "https://i.ytimg.com/vi/DaYTvwe0Wo0/maxresdefault.jpg"
 description: "Rory Sutherland is one of the world’s leading consumer behaviour experts, the Vice Chairman of Ogilvy Advertising and an author.  The advertising industry creates a unique intersection between psychology and creativity. By looking at what works in the world of ad campaigns, we can learn even more ab"
 topics:
-  - marketing
-  - psychology
-  - behavioural-economics
+  - reframing
+  - alchemy
 ---
 
 ## Key Takeaways

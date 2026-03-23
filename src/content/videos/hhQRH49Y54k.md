@@ -11,8 +11,8 @@ view_count: 840907
 thumbnail: "https://i.ytimg.com/vi/hhQRH49Y54k/maxresdefault.jpg"
 description: "Watch the full video with the presentation slides here: https://gdsgroup.com/rory-sutherland-2/  In his keynote address at our CMO Insight Summit, Rory Sutherland from Ogilvy & Mather explained why \"psychological insight is just as valuable as technological advance.\"  GDS Group runs international "
 topics:
-  - marketing
-  - psychology
+  - alchemy
+  - signalling
 ---
 
 ## Key Takeaways

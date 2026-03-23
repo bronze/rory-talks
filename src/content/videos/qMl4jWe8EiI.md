@@ -12,8 +12,8 @@ thumbnail: "https://i.ytimg.com/vi/qMl4jWe8EiI/maxresdefault.jpg"
 description: "Roger L. Martin, the renowned CEO Whisperer, strategic thinker, and former Dean of the Rotman School of Management, dissects a critical paradox: why organisations, despite needing innovation to survive, often actively stifle it."
 start_time: 1320
 topics:
-  - business-strategy
-  - creativity
+  - complexity
+  - risk
 ---
 
 ## Key Takeaways

@@ -11,7 +11,7 @@ view_count: 1485136
 thumbnail: "https://i.ytimg.com/vi/Hz3RWxJck68/maxresdefault.jpg"
 description: "Rory Sutherland is the author of Alchemy, a senior advertising executive, and the man who understands why some ideas connect with people and some ideas don’t. He’s a columnist, an innovator and a trailblazer in the world of marketing and advertising.  0:00 Intro 02:07 The concept of how we value thi"
 topics:
-  - marketing
+  - reframing
   - brand
 ---
 

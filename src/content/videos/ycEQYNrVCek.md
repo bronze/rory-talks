@@ -11,9 +11,8 @@ view_count: 170960
 thumbnail: "https://i.ytimg.com/vi/ycEQYNrVCek/maxresdefault.jpg"
 description: "The world is becoming at best a much bossier place, and at worst the site of major oppression and coercion. Rory's opening talk explores how soft power — influencing behaviour through context and design rather than rules — becomes more valuable as the world hardens."
 topics:
-  - marketing
-  - behavioural-economics
-  - business-strategy
+  - signalling
+  - complexity
 ---
 
 ## Key Takeaways

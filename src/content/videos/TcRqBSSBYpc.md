@@ -11,9 +11,8 @@ view_count: 133878
 thumbnail: "https://i.ytimg.com/vi/TcRqBSSBYpc/maxresdefault.jpg"
 description: "90% of progress in business comes from exploiting the mess. Yet 90% of the effort is devoted to pretending it away. Rory argues that our love of top-down neatness is destroying the conditions for genuine innovation."
 topics:
-  - behavioural-economics
-  - creativity
-  - business-strategy
+  - complexity
+  - alchemy
 ---
 
 ## Key Takeaways

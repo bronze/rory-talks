@@ -11,9 +11,8 @@ view_count: 910407
 thumbnail: "https://i.ytimg.com/vi/Bc9jFbxrkMk/maxresdefault.jpg"
 description: "Rory explains how we weight information that appears quickly over knowledge that really matters, and why we've allowed the urgent to drown out the important."
 topics:
-  - behavioural-economics
-  - psychology
-  - business-strategy
+  - reframing
+  - risk
 ---
 
 ## Key Takeaways

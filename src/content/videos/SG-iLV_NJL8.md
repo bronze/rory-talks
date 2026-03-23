@@ -11,8 +11,8 @@ view_count: 438675
 thumbnail: "https://i.ytimg.com/vi/SG-iLV_NJL8/maxresdefault.jpg"
 description: "Ogilvy legend Rory Sutherland explores the alchemy behind original thinking and how big problems can often be solved with unexpected solutions.  Watch his speech on the #TravelIndustry  👉 https://www.travelport.com/theme/modern-retailing#presentations"
 topics:
-  - creativity
-  - behavioural-economics
+  - alchemy
+  - complexity
 ---
 
 ## Key Takeaways

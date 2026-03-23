@@ -11,8 +11,8 @@ view_count: 173082
 thumbnail: "https://i.ytimg.com/vi/YErOtGMgTNg/maxresdefault.jpg"
 description: "Rory Sutherland is widely regarded as one of the most influential (and most entertaining) thinkers in marketing and behavioral science. He’s the vice chairman of Ogilvy UK, the author of Alchemy: The Dark Art and Curious Science of Creating Magic in Brands, Business, and Life, and the founder of Nud"
 topics:
-  - marketing
-  - behavioural-economics
+  - brand
+  - signalling
 ---
 
 ## Key Takeaways
