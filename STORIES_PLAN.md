@@ -50,9 +50,9 @@ Check off each talk once its stories have been indexed.
 | ✅ | md9UAorQ_B0 | The 1776 Lecture: Rory Sutherland on The American Revolution, Adam Smith and Self-Checkouts |
 | ⬜ | CgY7k2QkERo | Why You Keep Falling for Ads — Explained by Rory Sutherland |
 | ⬜ | Gi673RdyPEw | Rory Sutherland – How human behaviour regularly defies logic and supporting data |
-| ⬜ | dkLcwHmnPV4 | Rory Sutherland: Sweat the small stuff |
-| ⬜ | iueVZJVEmEs | Rory Sutherland: Perspective is everything |
-| ⬜ | 4VuYiEbGQ9Q | The Lost Genius of Irrationality: Rory Sutherland at TEDxOxford |
+| ✅ | dkLcwHmnPV4 | Rory Sutherland: Sweat the small stuff |
+| ✅ | iueVZJVEmEs | Rory Sutherland: Perspective is everything |
+| ✅ | 4VuYiEbGQ9Q | The Lost Genius of Irrationality: Rory Sutherland at TEDxOxford |
 | ⬜ | hhQRH49Y54k | The psychology of digital marketing |
 | ⬜ | UirCaM5kg9E | RORY SUTHERLAND'S 10 RULES OF ALCHEMY |
 | ⬜ | SG-iLV_NJL8 | Rory Sutherland on the Magic of Original Thinking |
