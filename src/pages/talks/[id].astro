@@ -64,7 +64,8 @@ const takeaways = takeawaysMatch
     <!-- Video embed -->
     <div class="aspect-video w-full mb-8 rounded-sm overflow-hidden border border-border bg-background">
       <iframe
-        src={`https://www.youtube.com/embed/${data.id}?${data.start_time ? `start=${data.start_time}&` : ''}list=${PLAYLIST_ID}`}
+        id="yt-player"
+        src={`https://www.youtube.com/embed/${data.id}?${data.start_time ? `start=${data.start_time}&` : ''}list=${PLAYLIST_ID}&enablejsapi=1`}
         title={data.title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -248,3 +249,30 @@ const takeaways = takeawaysMatch
     display: none;
   }
 </style>
+
+<script>
+  // YouTube IFrame API — timecode links seek the embedded player instead of navigating away
+  let player: any;
+
+  (window as any).onYouTubeIframeAPIReady = () => {
+    const iframe = document.getElementById('yt-player') as HTMLIFrameElement;
+    if (iframe) player = new (window as any).YT.Player(iframe);
+  };
+
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  document.addEventListener('click', (e) => {
+    const link = (e.target as Element).closest('a');
+    if (!link) return;
+    const href = link.getAttribute('href') ?? '';
+    if (!href.includes('youtube.com/watch')) return;
+    const t = new URL(href).searchParams.get('t');
+    if (!t || !player?.seekTo) return;
+    e.preventDefault();
+    player.seekTo(parseInt(t), true);
+    player.playVideo();
+    document.getElementById('yt-player')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
