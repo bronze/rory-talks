@@ -7,14 +7,11 @@ const allVideos = await getCollection('videos');
 
 const videoMap = new Map(allVideos.map(v => [v.data.id, v.data]));
 
-// Sort stories alphabetically
-const stories = allStories.sort((a, b) => a.data.title.localeCompare(b.data.title));
-
-// Stories with multiple appearances first, then alpha
-const sorted = [
-  ...stories.filter(s => s.data.appearances.length > 1),
-  ...stories.filter(s => s.data.appearances.length === 1),
-];
+const sorted = allStories.sort((a, b) => {
+  const diff = b.data.appearances.length - a.data.appearances.length;
+  if (diff !== 0) return diff;
+  return a.data.title.localeCompare(b.data.title);
+});
 ---
 
 <Base title="Recurring Stories — Rory Sutherland">
