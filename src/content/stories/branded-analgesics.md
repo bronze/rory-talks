@@ -4,4 +4,6 @@ description: "Branded painkillers measurably reduce pain more effectively than c
 appearances:
   - video: "iueVZJVEmEs"
     timecode: 1075
+  - video: "Hz3RWxJck68"
+    timecode: 4800
 ---

@@ -4,4 +4,8 @@ description: "Uber didn't make taxis faster or cheaper. It changed the quality o
 appearances:
   - video: "md9UAorQ_B0"
     timecode: 946
+  - video: "SG-iLV_NJL8"
+    timecode: 1295
+  - video: "Hz3RWxJck68"
+    timecode: 127
 ---

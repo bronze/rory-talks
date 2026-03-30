@@ -54,9 +54,9 @@ Check off each talk once its stories have been indexed.
 | ✅ | iueVZJVEmEs | Rory Sutherland: Perspective is everything |
 | ✅ | 4VuYiEbGQ9Q | The Lost Genius of Irrationality: Rory Sutherland at TEDxOxford |
 | ⬜ | hhQRH49Y54k | The psychology of digital marketing |
-| ⬜ | UirCaM5kg9E | RORY SUTHERLAND'S 10 RULES OF ALCHEMY |
-| ⬜ | SG-iLV_NJL8 | Rory Sutherland on the Magic of Original Thinking |
-| ⬜ | Hz3RWxJck68 | The Marketing Secrets Apple & Tesla Always Use |
+| ✅ | UirCaM5kg9E | RORY SUTHERLAND'S 10 RULES OF ALCHEMY |
+| ✅ | SG-iLV_NJL8 | Rory Sutherland on the Magic of Original Thinking |
+| ✅ | Hz3RWxJck68 | The Marketing Secrets Apple & Tesla Always Use |
 | ⬜ | DaYTvwe0Wo0 | How Your Brain Gets Tricked By Clever Marketing |
 | ⬜ | wqb0f4vmkis | Rory Sutherland: The Psychology of Selling |
 | ⬜ | YErOtGMgTNg | What most people miss about marketing |
