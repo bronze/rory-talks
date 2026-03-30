@@ -256,7 +256,19 @@ const takeaways = takeawaysMatch
 
   (window as any).onYouTubeIframeAPIReady = () => {
     const iframe = document.getElementById('yt-player') as HTMLIFrameElement;
-    if (iframe) player = new (window as any).YT.Player(iframe);
+    if (!iframe) return;
+    player = new (window as any).YT.Player(iframe, {
+      events: {
+        onReady: () => {
+          const t = new URLSearchParams(window.location.search).get('t');
+          if (t) {
+            player.seekTo(parseInt(t), true);
+            player.playVideo();
+            iframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        },
+      },
+    });
   };
 
   const tag = document.createElement('script');

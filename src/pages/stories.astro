@@ -1,0 +1,74 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const allStories = await getCollection('stories');
+const allVideos = await getCollection('videos');
+
+const videoMap = new Map(allVideos.map(v => [v.data.id, v.data]));
+
+// Sort stories alphabetically
+const stories = allStories.sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+// Stories with multiple appearances first, then alpha
+const sorted = [
+  ...stories.filter(s => s.data.appearances.length > 1),
+  ...stories.filter(s => s.data.appearances.length === 1),
+];
+---
+
+<Base title="Recurring Stories — Rory Sutherland">
+  <main class="max-w-4xl mx-auto px-6 pb-24 pt-10 sm:px-4">
+
+    <header class="py-16 border-b border-border mb-14 sm:py-10">
+      <p class="font-mono text-xs tracking-[0.15em] uppercase text-primary mb-3">archive</p>
+      <h1 class="font-bold text-5xl tracking-tight leading-none text-foreground mb-2 sm:text-3xl">
+        Recurring Stories
+      </h1>
+      <p class="text-lg text-muted-foreground italic">
+        Anecdotes and examples Rory returns to across talks
+      </p>
+    </header>
+
+    <ul class="divide-y divide-border">
+      {sorted.map(story => {
+        const { title, description, appearances } = story.data;
+        return (
+          <li class="py-8">
+            <div class="flex items-baseline justify-between gap-4 mb-2 flex-wrap">
+              <h2 class="font-bold text-xl text-foreground">{title}</h2>
+              {appearances.length > 1 && (
+                <span class="font-mono text-xs text-primary shrink-0">
+                  {appearances.length} talks
+                </span>
+              )}
+            </div>
+            <p class="text-muted-foreground leading-relaxed mb-4">{description}</p>
+            <ul class="flex flex-col gap-2">
+              {appearances.map(({ video, timecode }) => {
+                const v = videoMap.get(video);
+                if (!v) return null;
+                const mins = Math.floor(timecode / 60);
+                const secs = String(timecode % 60).padStart(2, '0');
+                const label = `${mins}:${secs}`;
+                return (
+                  <li class="flex items-center gap-3">
+                    <a
+                      href={`/talks/${video}?t=${timecode}`}
+                      class="font-mono text-xs px-2 py-1 rounded-sm border border-primary/40 text-primary hover:bg-primary/10 transition-colors shrink-0"
+                    >{label}</a>
+                    <a
+                      href={`/talks/${video}?t=${timecode}`}
+                      class="text-sm text-muted-foreground hover:text-foreground transition-colors line-clamp-1"
+                    >{v.title}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </li>
+        );
+      })}
+    </ul>
+
+  </main>
+</Base>

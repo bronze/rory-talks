@@ -42,4 +42,16 @@ const books = defineCollection({
   }),
 });
 
-export const collections = { videos, transcripts, books };
+const stories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/stories' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    appearances: z.array(z.object({
+      video: z.string(),
+      timecode: z.number(),
+    })).default([]),
+  }),
+});
+
+export const collections = { videos, transcripts, books, stories };
